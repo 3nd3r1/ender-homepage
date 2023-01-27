@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { useState, useEffect } from "react";
+
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -22,86 +24,102 @@ const SocialEntry = ({ text, link, icon }: any) => (
 	</li>
 );
 
-const Home = () => (
-	<Layout title="Home">
-		<div className="flex flex-col gap-8 home-page-content">
-			<div className="flex flex-row gap-10 justify-between">
-				<div>
-					<h1 className="text-5xl">Viljami Ranta</h1>
-					<p className="text-lg">Developer, Problem-solver</p>
-				</div>
-				<div className="relative w-24 h-24">
-					<span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
-						<Image
-							src="/images/me.JPG"
-							alt="Söpö meitsi"
-							fill
-							className="rounded-full object-cover"
-						/>
-					</span>
-				</div>
-			</div>
-			<div>
-				<h1 className="main-heading">Work</h1>
-				<div className="py-4">
-					<p className="indent-4">
-						I am a 20-year-old programmer from from Helsinki. I got
-						my first computer at 10 years old, after which I haven't
-						been able to stop programming. Wether it be competetive
-						programming with c++, mordern web development with
-						javascript, game development with java or linux server
-						administration, there isn't much I haven't tried.
-					</p>
-					<div className="flex justify-center">
-						<Link
-							className="!text-black bg-purple-400 hover:bg-purple-500 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2"
-							href="\works"
-						>
-							My Portfolio
-							<IoIosArrowForward className="text-sm" />
-						</Link>
+const Home = () => {
+	const [profile, setProfile] = useState({
+		name: "Viljami Ranta",
+		image: "/images/me.JPG",
+	});
+
+	useEffect(() => {
+		if (window.location.host === "ender.fi") {
+			setProfile({ name: "Ender", image: "/images/enderlogo.jpg" });
+		}
+	}, []);
+
+	return (
+		<Layout title="Home">
+			<div className="flex flex-col gap-8 home-page-content">
+				<div className="flex flex-row gap-10 justify-between">
+					<div>
+						<h1 className="text-5xl">{profile.name}</h1>
+						<p className="text-lg">Developer, Problem-solver</p>
+					</div>
+					<div className="relative w-24 h-24">
+						<span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
+							<Image
+								src={profile.image}
+								alt="Söpö meitsi"
+								fill
+								className="rounded-full object-cover"
+							/>
+						</span>
 					</div>
 				</div>
-			</div>
-			<div>
-				<h1 className="main-heading">Bio</h1>
-				<div className="flex flex-col py-4">
-					<BioEntry year="2002">Born in Helsinki, Finland.</BioEntry>
-					<BioEntry year="2018">
-						Completed High School in The French-Finnish school of
-						Helsinki
-					</BioEntry>
-					<BioEntry year="2022">
-						Studying Computer Science at the{" "}
-						<Link href="https://helsinki.fi" target="_blank">
-							University of Helsinki
-						</Link>
-					</BioEntry>
-					<BioEntry year="2022">
-						Teaching programming to kids at{" "}
-						<Link href="https://kodarit.fi" target="_blank">
-							Kodarit
-						</Link>
-					</BioEntry>
+				<div>
+					<h1 className="main-heading">Work</h1>
+					<div className="py-4">
+						<p className="indent-4">
+							I am a 20-year-old programmer from from Helsinki. I
+							got my first computer at 10 years old, after which I
+							haven't been able to stop programming. Wether it be
+							competetive programming with c++, mordern web
+							development with javascript, game development with
+							java or linux server administration, there isn't
+							much I haven't tried.
+						</p>
+						<div className="flex justify-center">
+							<Link
+								className="!text-black bg-purple-400 hover:bg-purple-500 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2"
+								href="/works"
+							>
+								My Portfolio
+								<IoIosArrowForward className="text-sm" />
+							</Link>
+						</div>
+					</div>
+				</div>
+				<div>
+					<h1 className="main-heading">Bio</h1>
+					<div className="flex flex-col py-4">
+						<BioEntry year="2002">
+							Born in Helsinki, Finland.
+						</BioEntry>
+						<BioEntry year="2018">
+							Completed High School in The French-Finnish school
+							of Helsinki
+						</BioEntry>
+						<BioEntry year="2022">
+							Studying Computer Science at the{" "}
+							<Link href="https://helsinki.fi" target="_blank">
+								University of Helsinki
+							</Link>
+						</BioEntry>
+						<BioEntry year="2022">
+							Teaching programming to kids at{" "}
+							<Link href="https://kodarit.fi" target="_blank">
+								Kodarit
+							</Link>
+						</BioEntry>
+					</div>
+				</div>
+				<div>
+					<h1 className="main-heading">Socials</h1>
+					<ul className="py-4 px-4">
+						<SocialEntry
+							text="@3nd3r1"
+							link="https://github.com/3nd3r1"
+							icon={<AiFillGithub />}
+						/>
+						<SocialEntry
+							text="@enderguru"
+							link="https://twitter.com/enderguru"
+							icon={<AiFillTwitterCircle />}
+						/>
+					</ul>
 				</div>
 			</div>
-			<div>
-				<h1 className="main-heading">Socials</h1>
-				<ul className="py-4 px-4">
-					<SocialEntry
-						text="@3nd3r1"
-						link="https://github.com/3nd3r1"
-						icon={<AiFillGithub />}
-					/>
-					<SocialEntry
-						text="@enderguru"
-						link="https://twitter.com/enderguru"
-						icon={<AiFillTwitterCircle />}
-					/>
-				</ul>
-			</div>
-		</div>
-	</Layout>
-);
+		</Layout>
+	);
+};
 
 export default Home;

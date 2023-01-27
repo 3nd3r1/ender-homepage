@@ -44,7 +44,7 @@ export function getStaticProps() {
 				props: { works },
 			};
 		})
-		.catch((error) => window.alert(error));
+		.catch((error) => console.log(error));
 }
 
 export default Works;

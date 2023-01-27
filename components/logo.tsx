@@ -2,19 +2,19 @@ import Link from "next/link";
 import React from "react";
 
 const Logo = (props: any) => {
-	const { path } = props;
+	const { path, name } = props;
 	return (
 		<Link href="/">
-			<span className="flex flex-row items-center align-middle gap-1 group font-term text-lg font-bold">
+			<div className="flex flex-row items-center align-middle gap-1 group font-term text-lg font-bold">
 				<p>
-					{"viljamiranta@mysite:"}
+					{`${name}@mysite:`}
 					<span className="text-purple-500">
 						{"~"}
 						{path}
 					</span>
 					{"$"}
 				</p>
-			</span>
+			</div>
 		</Link>
 	);
 };
