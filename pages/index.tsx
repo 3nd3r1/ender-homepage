@@ -61,7 +61,7 @@ const Home = () => {
 						<p className="indent-4">
 							I am a 20-year-old programmer from from Helsinki. I
 							got my first computer at 10 years old, after which I
-							haven't been able to stop programming. Wether it be
+							haven't been able to stop programming. Whether it be
 							competetive programming with c++, mordern web
 							development with javascript, game development with
 							java or linux server administration, there isn't
