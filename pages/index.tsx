@@ -1,86 +1,107 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import Image from "next/image";
+import Link from "next/link";
 
-const Home: NextPage = () => {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
+import { IoIosArrowForward } from "react-icons/io";
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+import Layout from "../components/layouts/content";
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
+const BioEntry = ({ children, year }: any) => (
+	<div className="pl-[3.4em] indent-[-3.4em]">
+		<span className="mr-4 font-bold">{year}</span>
+		{children}
+	</div>
+);
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
+const SocialEntry = ({ text, link, icon }: any) => (
+	<li className="flex flex-row items-center text-xl gap-2 align-middle dark:text-purple-400 text-purple-700">
+		{icon}
+		<Link className="mb-1" target="_blank" href={link}>
+			{text}
+		</Link>
+	</li>
+);
 
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
+const Home = () => (
+	<Layout title="Home">
+		<div className="flex flex-col gap-8 home-page-content">
+			<div className="flex flex-row gap-10 justify-between">
+				<div>
+					<h1 className="text-5xl">Viljami Ranta</h1>
+					<p className="text-lg">Developer, Problem-solver</p>
+				</div>
+				<div className="relative w-24 h-24">
+					<span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
+						<Image
+							src="/images/me.JPG"
+							alt="Söpö meitsi"
+							fill
+							className="rounded-full object-cover"
+						/>
+					</span>
+				</div>
+			</div>
+			<div>
+				<h1 className="main-heading">Work</h1>
+				<div className="py-4">
+					<p className="indent-4">
+						I am a 20-year-old programmer from from Helsinki. I got
+						my first computer at 10 years old, after which I haven't
+						been able to stop programming. Wether it be competetive
+						programming with c++, mordern web development with
+						javascript, game development with java or linux server
+						administration, there isn't much I haven't tried.
+					</p>
+					<div className="flex justify-center">
+						<Link
+							className="!text-black bg-purple-400 hover:bg-purple-500 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2"
+							href="\works"
+						>
+							My Portfolio
+							<IoIosArrowForward className="text-sm" />
+						</Link>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h1 className="main-heading">Bio</h1>
+				<div className="flex flex-col py-4">
+					<BioEntry year="2002">Born in Helsinki, Finland.</BioEntry>
+					<BioEntry year="2018">
+						Completed High School in The French-Finnish school of
+						Helsinki
+					</BioEntry>
+					<BioEntry year="2022">
+						Studying Computer Science at the{" "}
+						<Link href="https://helsinki.fi" target="_blank">
+							University of Helsinki
+						</Link>
+					</BioEntry>
+					<BioEntry year="2022">
+						Teaching programming to kids at{" "}
+						<Link href="https://kodarit.fi" target="_blank">
+							Kodarit
+						</Link>
+					</BioEntry>
+				</div>
+			</div>
+			<div>
+				<h1 className="main-heading">Socials</h1>
+				<ul className="py-4 px-4">
+					<SocialEntry
+						text="@3nd3r1"
+						link="https://github.com/3nd3r1"
+						icon={<AiFillGithub />}
+					/>
+					<SocialEntry
+						text="@enderguru"
+						link="https://twitter.com/enderguru"
+						icon={<AiFillTwitterCircle />}
+					/>
+				</ul>
+			</div>
+		</div>
+	</Layout>
+);
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
-  )
-}
-
-export default Home
+export default Home;
