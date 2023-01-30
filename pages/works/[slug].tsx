@@ -64,6 +64,7 @@ const Work = ({ work }: any) => {
 						src={work.image.url}
 						alt={work.title}
 						className="rounded-lg shadow-lg"
+						priority
 					/>
 				</div>
 			</div>

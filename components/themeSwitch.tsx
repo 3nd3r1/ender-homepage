@@ -1,11 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CiDark, CiLight } from "react-icons/ci";
 
 const ThemeSwitch = () => {
-	const [theme, setTheme] = useState("dark");
+	const [theme, setTheme] = useState<string | null>(null);
+
+	useEffect(() => {
+		if (localStorage.getItem("color-theme") !== null) {
+			setTheme(localStorage.getItem("color-theme"));
+		}
+	}, []);
+
+	useEffect(() => {
+		if (theme == null) {
+			return;
+		}
+
+		localStorage.setItem("color-theme", theme);
+		if (theme == "dark") {
+			document.documentElement.classList.add("dark");
+		} else if (document.documentElement.classList.contains("dark")) {
+			document.documentElement.classList.remove("dark");
+		}
+	}, [theme]);
+
 	return (
-		<AnimatePresence exitBeforeEnter initial={false}>
+		<AnimatePresence mode="wait" initial={false}>
 			<motion.div
 				className="inline-block"
 				key={theme}
@@ -16,19 +36,7 @@ const ThemeSwitch = () => {
 			>
 				<button
 					className="p-2 dark:bg-amber-200 bg-purple-500 dark:text-black text-lg rounded-lg dark:hover:bg-amber-300 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"
-					onClick={() => {
-						if (
-							document.documentElement.classList.contains("dark")
-						) {
-							setTheme("light");
-							document.documentElement.classList.remove("dark");
-							localStorage.setItem("color-theme", "light");
-						} else {
-							setTheme("dark");
-							document.documentElement.classList.add("dark");
-							localStorage.setItem("color-theme", "dark");
-						}
-					}}
+					onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
 				>
 					{theme == "dark" ? <CiLight /> : <CiDark />}
 				</button>

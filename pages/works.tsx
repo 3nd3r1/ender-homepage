@@ -14,9 +14,9 @@ const WorkEntry = ({ work }: any) => (
 			<Image
 				src={work.image ? work.image.url : defaultImage}
 				alt={work.title}
-				width={240}
-				height={180}
-				className="rounded-xl w-full h-32 object-cover"
+				width={1000}
+				height={1000}
+				className="rounded-xl h-32 w-auto object-cover"
 			/>
 			<h3 className="w-100 text-center text-xl mt-2">{work.title}</h3>
 			<p className="text-sm text-center">{work.description}</p>
