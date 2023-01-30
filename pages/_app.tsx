@@ -10,15 +10,7 @@ function Website({ Component, pageProps, router }: AppProps) {
 	return (
 		<ThemeProvider enableSystem={true} attribute="class">
 			<Layout router={router}>
-				<AnimatePresence
-					initial={true}
-					mode="wait"
-					onExitComplete={() => {
-						if (typeof window !== "undefined") {
-							window.scrollTo({ top: 0 });
-						}
-					}}
-				>
+				<AnimatePresence initial={true} mode="wait">
 					<Component {...pageProps} key={router.route} />
 				</AnimatePresence>
 			</Layout>
