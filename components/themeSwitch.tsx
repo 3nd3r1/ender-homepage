@@ -3,32 +3,28 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CiDark, CiLight } from "react-icons/ci";
 
 const ThemeSwitch = () => {
-	const [theme, setTheme] = useState<string | null>(null);
+	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
 
 	useEffect(() => {
-		if (localStorage.getItem("color-theme") !== null) {
-			setTheme(localStorage.getItem("color-theme"));
+		if (localStorage.getItem("dark-mode") === "0") {
+			setIsDarkTheme(false);
 		}
 	}, []);
 
 	useEffect(() => {
-		if (theme == null) {
-			return;
-		}
-
-		localStorage.setItem("color-theme", theme);
-		if (theme == "dark") {
+		localStorage.setItem("dark-mode", isDarkTheme ? "1" : "0");
+		if (isDarkTheme) {
 			document.documentElement.classList.add("dark");
 		} else if (document.documentElement.classList.contains("dark")) {
 			document.documentElement.classList.remove("dark");
 		}
-	}, [theme]);
+	}, [isDarkTheme]);
 
 	return (
 		<AnimatePresence mode="wait" initial={false}>
 			<motion.div
 				className="inline-block"
-				key={theme}
+				key={isDarkTheme ? "dark" : "light"}
 				initial={{ y: -20, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				exit={{ y: 20, opacity: 0 }}
@@ -36,9 +32,9 @@ const ThemeSwitch = () => {
 			>
 				<button
 					className="p-2 dark:bg-amber-200 bg-purple-500 dark:text-black text-lg rounded-lg dark:hover:bg-amber-300 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"
-					onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
+					onClick={() => setIsDarkTheme(!isDarkTheme)}
 				>
-					{theme == "dark" ? <CiLight /> : <CiDark />}
+					{isDarkTheme ? <CiLight /> : <CiDark />}
 				</button>
 			</motion.div>
 		</AnimatePresence>

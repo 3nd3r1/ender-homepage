@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState, useEffect } from "react";
-
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -25,29 +23,18 @@ const SocialEntry = ({ text, link, icon }: any) => (
 );
 
 const Home = () => {
-	const [profile, setProfile] = useState({
-		name: "Viljami Ranta",
-		image: "/images/me.JPG",
-	});
-
-	useEffect(() => {
-		if (window.location.host === "ender.fi") {
-			setProfile({ name: "Ender", image: "/images/enderlogo.jpg" });
-		}
-	}, []);
-
 	return (
 		<Layout title="Home">
 			<div className="flex flex-col gap-8 home-page-content">
 				<div className="flex flex-row gap-10 justify-between">
 					<div>
-						<h1 className="text-5xl">{profile.name}</h1>
+						<h1 className="text-5xl">Viljami Ranta</h1>
 						<p className="text-lg">Developer, Problem-solver</p>
 					</div>
 					<div className="relative w-24 h-24">
 						<span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
 							<Image
-								src={profile.image}
+								src="/images/me.JPG"
 								alt="Söpö meitsi"
 								fill
 								className="rounded-full object-cover"
