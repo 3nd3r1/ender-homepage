@@ -52,9 +52,10 @@ const Home = () => {
 							competetive programming with c++, mordern web
 							development with javascript, game development with
 							java or linux server administration, there isn't
-							much I haven't tried.
+							much I haven't tried. I never surr<span>ender</span>{" "}
+							no matter the challenge.
 						</p>
-						<div className="flex justify-center">
+						<div className="flex justify-center mt-2">
 							<Link
 								className="!text-black bg-purple-400 hover:bg-purple-500 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2"
 								href="/works"

@@ -10,7 +10,7 @@ const LinkComp = ({ text, url, path }: any) => {
 	return (
 		<Link key={text} href={url}>
 			<p
-				className={`font-term text-lg relative mb-2 hover:before:content-['>_'] before:absolute before:left-[-15px] ${
+				className={`font-term text-lg relative mb-2 mx-2 hover:before:content-['>_'] before:absolute before:left-[-15px] ${
 					active ? "before:content-['>_']" : ""
 				}`}
 			>
@@ -27,14 +27,19 @@ const Navbar = ({ path }: any) => {
 			animate={{ y: 0, opacity: 1 }}
 			transition={{ duration: 0.2 }}
 		>
-			<nav className="w-100">
-				<div className=" flex flex-wrap max-w-4xl mx-auto py-4 justify-between">
-					<div className="flex flex-row ml-5 flex-grow">
+			<nav className="max-w-6xl mx-auto">
+				<div className=" flex flex-wrap max-w-4xl ml-5 py-4 justify-between">
+					<div className="flex flex-row ml-5 flex-grow gap-6">
 						<div className="grow max-w-xs">
 							<Logo path={path} />
 						</div>
-						<div className="flex flex-row gap-2 align-middle items-center">
+						<div className="flex flex-row gap-3 align-middle items-center">
 							<LinkComp path={path} text="Works" url="/works" />
+							<LinkComp
+								path={path}
+								text="Achievements"
+								url="/achievements"
+							/>
 							<Link
 								target="_blank"
 								href="https://github.com/3nd3r1/ender-homepage"
