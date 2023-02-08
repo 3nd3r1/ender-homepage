@@ -5,13 +5,18 @@ import Layout from "../components/layouts/content";
 import { AiFillLock } from "react-icons/ai";
 import { MdDarkMode, MdWork } from "react-icons/md";
 import { GiTechnoHeart } from "react-icons/gi";
+import { IoShareSocialSharp } from "react-icons/io5";
+
+import SkullIcon from "../components/icons/skull";
 
 const AchievementEntry = ({ title, desc, icon, owned }: any) => (
 	<div className="dark: bg-neutral-800 shadow-md hover:shadow-lg rounded-md flex flex-row px-2 py-1 h-16">
 		<div className="flex place-items-center">
 			<div
 				className={`dark:bg-neutral-900 ${
-					owned ? "" : "dark: text-neutral-500"
+					owned
+						? "dark: text-white dark:fill-white"
+						: "dark: text-neutral-500 dark:fill-neutral-500"
 				} rounded-full w-12 h-12 text-4xl flex place-items-center justify-center mr-2`}
 			>
 				{owned ? icon : <AiFillLock />}
@@ -46,6 +51,18 @@ const Achievements = ({ completedAchievements }: any) => {
 			desc: "Visit this pages GitHub repo.",
 			icon: <GiTechnoHeart />,
 		},
+		{
+			id: 4,
+			title: "Social Buttterfly",
+			desc: "Visit one of my social medias.",
+			icon: <IoShareSocialSharp />,
+		},
+		{
+			id: 5,
+			title: "The End?",
+			desc: "Find the secret ender page.",
+			icon: <SkullIcon className={`scale-75`} />,
+		},
 	];
 
 	return (
@@ -58,7 +75,7 @@ const Achievements = ({ completedAchievements }: any) => {
 						desc={achievement.desc}
 						icon={achievement.icon}
 						owned={
-							completedAchievements.indexOf(achievement.id) == -1
+							completedAchievements.indexOf(achievement.id) !== -1
 						}
 					/>
 				))}

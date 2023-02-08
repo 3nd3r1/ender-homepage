@@ -2,7 +2,6 @@ import Link from "next/link";
 import Logo from "./logo";
 import ThemeSwitch from "./themeSwitch";
 import { AiFillGithub } from "react-icons/ai";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const LinkComp = ({ text, url, path }: any) => {
@@ -20,7 +19,7 @@ const LinkComp = ({ text, url, path }: any) => {
 	);
 };
 
-const Navbar = ({ path }: any) => {
+const Navbar = ({ path, completeAchievement }: any) => {
 	return (
 		<motion.div
 			initial={{ y: 40, opacity: 0 }}
@@ -51,7 +50,9 @@ const Navbar = ({ path }: any) => {
 						</div>
 					</div>
 					<div>
-						<ThemeSwitch />
+						<ThemeSwitch
+							completeAchievement={completeAchievement}
+						/>
 					</div>
 				</div>
 			</nav>

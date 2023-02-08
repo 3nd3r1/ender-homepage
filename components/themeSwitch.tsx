@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CiDark, CiLight } from "react-icons/ci";
 
-const ThemeSwitch = () => {
+const ThemeSwitch = ({ completeAchievement }: any) => {
 	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
 
 	useEffect(() => {
@@ -12,12 +12,15 @@ const ThemeSwitch = () => {
 	}, []);
 
 	useEffect(() => {
-		localStorage.setItem("dark-mode", isDarkTheme ? "1" : "0");
 		if (isDarkTheme) {
 			document.documentElement.classList.add("dark");
+			if (localStorage.getItem("dark-mode") === "0") {
+				completeAchievement(1);
+			}
 		} else if (document.documentElement.classList.contains("dark")) {
 			document.documentElement.classList.remove("dark");
 		}
+		localStorage.setItem("dark-mode", isDarkTheme ? "1" : "0");
 	}, [isDarkTheme]);
 
 	return (

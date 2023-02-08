@@ -5,21 +5,35 @@ import Layout from "../components/layouts/main";
 
 import "../styles/globals.scss";
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Website({ Component, pageProps, router }: AppProps) {
-	const [isEnderized, setIsEnderized] = useState(false);
+	const [isEnderized, setIsEnderized] = useState<boolean>(false);
 	const [completedAchievements, setCompletedAchievements] = useState<
 		Number[]
 	>([]);
 
 	const completeAchievement = (id: Number) => {
-		setCompletedAchievements(completedAchievements.concat(id));
+		if (completedAchievements.indexOf(id) === -1) {
+			setCompletedAchievements(completedAchievements.concat(id));
+		}
 	};
+
+	useEffect(() => {
+		const data = localStorage.getItem("completed-achievements");
+		setCompletedAchievements(data ? data.split(";").map(Number) : []);
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem(
+			"completed-achievements",
+			completedAchievements.join(";")
+		);
+	}, [completedAchievements]);
 
 	return (
 		<ThemeProvider enableSystem={true} attribute="class">
-			<Layout router={router}>
+			<Layout router={router} completeAchievement={completeAchievement}>
 				<AnimatePresence initial={true} mode="wait">
 					<Component
 						{...pageProps}
