@@ -46,10 +46,10 @@ const Home = () => {
 					<h1 className="main-heading">Work</h1>
 					<div className="py-4">
 						<p className="indent-4">
-							I am a 20-year-old programmer from from Helsinki. I
-							got my first computer at 10 years old, after which I
+							I am a 20-year-old programmer from Helsinki. I got
+							my first computer at 10 years old, after which I
 							haven't been able to stop programming. Whether it be
-							competetive programming with c++, mordern web
+							competetive programming with c++, modern web
 							development with javascript, game development with
 							java or linux server administration, there isn't
 							much I haven't tried.
@@ -71,7 +71,7 @@ const Home = () => {
 						<BioEntry year="2002">
 							Born in Helsinki, Finland.
 						</BioEntry>
-						<BioEntry year="2018">
+						<BioEntry year="2021">
 							Completed High School in The French-Finnish school
 							of Helsinki
 						</BioEntry>
