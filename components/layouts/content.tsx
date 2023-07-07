@@ -13,7 +13,7 @@ const Content = ({ children, title }: any) => {
 
 	return (
 		<motion.article
-			className="mx-auto max-w-lg font-term"
+			className="mx-auto max-w-lg font-term px-4"
 			initial="hidden"
 			animate="enter"
 			exit="exit"

@@ -26,12 +26,12 @@ const Home = () => {
 	return (
 		<Layout title="Home">
 			<div className="flex flex-col gap-8 home-page-content">
-				<div className="flex flex-row gap-10 justify-between">
+				<div className="flex flex-col-reverse md:flex-row gap-10 justify-between items-center ">
 					<div>
 						<h1 className="text-5xl">Viljami Ranta</h1>
 						<p className="text-lg">Developer, Problem-solver</p>
 					</div>
-					<div className="relative w-24 h-24">
+					<div className="relative w-40 h-40">
 						<span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
 							<Image
 								src="/images/me.JPG"
@@ -54,7 +54,7 @@ const Home = () => {
 							java or linux server administration, there isn't
 							much I haven't tried.
 						</p>
-						<div className="flex justify-center">
+						<div className="flex justify-center mt-6">
 							<Link
 								className="!text-black bg-purple-400 hover:bg-purple-500 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2"
 								href="/works"
@@ -85,6 +85,12 @@ const Home = () => {
 							Teaching programming to kids at{" "}
 							<Link href="https://kodarit.fi" target="_blank">
 								Kodarit
+							</Link>
+						</BioEntry>
+						<BioEntry year="2023">
+							Web developer at{" "}
+							<Link href="https://vebbi.fi" target="_blank">
+								Vebbi
 							</Link>
 						</BioEntry>
 					</div>

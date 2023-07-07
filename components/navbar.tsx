@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "./logo";
 import ThemeSwitch from "./themeSwitch";
 import { AiFillGithub } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { FaBars } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const LinkComp = ({ text, url, path }: any) => {
@@ -27,13 +27,20 @@ const Navbar = ({ path }: any) => {
 			animate={{ y: 0, opacity: 1 }}
 			transition={{ duration: 0.2 }}
 		>
-			<nav className="w-100">
-				<div className=" flex flex-wrap max-w-4xl mx-auto py-4 justify-between">
-					<div className="flex flex-row ml-5 flex-grow">
+			<nav className="w-100 px-4">
+				<div className=" flex flex-wrap max-w-4xl mx-auto py-4 justify-between items-center">
+					<div className="flex flex-row flex-grow">
 						<div className="grow max-w-xs">
-							<Logo path={path} />
+							<div className="hidden md:block">
+								<Logo path={path} />
+							</div>
+							<div className="block md:hidden">
+								<h2 className="font-term text-xl font-bold">
+									Viljami
+								</h2>
+							</div>
 						</div>
-						<div className="flex flex-row gap-2 align-middle items-center">
+						<div className="flex-row gap-2 align-middle items-center flex">
 							<LinkComp path={path} text="Works" url="/works" />
 							<Link
 								target="_blank"
@@ -45,7 +52,7 @@ const Navbar = ({ path }: any) => {
 							</Link>
 						</div>
 					</div>
-					<div>
+					<div className="px-4">
 						<ThemeSwitch />
 					</div>
 				</div>
