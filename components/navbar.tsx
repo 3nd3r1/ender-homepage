@@ -35,9 +35,11 @@ const Navbar = ({ path }: any) => {
 								<Logo path={path} />
 							</div>
 							<div className="block md:hidden">
-								<h2 className="font-term text-xl font-bold">
-									Viljami
-								</h2>
+								<Link href="/">
+									<h2 className="font-term text-xl font-bold">
+										Viljami
+									</h2>
+								</Link>
 							</div>
 						</div>
 						<div className="flex-row gap-2 align-middle items-center flex">

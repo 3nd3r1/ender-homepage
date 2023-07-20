@@ -9,7 +9,10 @@ const Main = ({ children, router }: any) => {
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
-				<meta name="description" content="Viljami's site" />
+				<meta
+					name="description"
+					content="Viljami's personal website - Developer and Problem-solver"
+				/>
 				<meta name="author" content="Viljami Ranta" />
 				<meta name="author" content="ender" />
 				<link
@@ -24,10 +27,10 @@ const Main = ({ children, router }: any) => {
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="@enderguru" />
 				<meta name="twitter:creator" content="@enderguru" />
-				<meta name="twitter:image" content="" />
+				<meta name="twitter:image" content="/images/me.JPG" />
 				<meta property="og:site_name" content="Viljami Ranta" />
 				<meta property="og:type" content="website" />
-				<meta property="og:image" content="" />
+				<meta property="og:image" content="/images/me.JPG" />
 			</Head>
 			<Navbar path={"/" + router.asPath.split("/")[1]} />
 			<main className="">

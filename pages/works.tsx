@@ -28,7 +28,7 @@ const Works = ({ works }: any) => {
 	return (
 		<Layout title="Works">
 			<h1 className="font-bold text-xl">Works</h1>
-			<div className="grid grid-cols-2 py-4 justify-items-center gap-8">
+			<div className="grid grid-cols-1 sm:grid-cols-2 py-4 px-2 justify-items-center gap-8">
 				{works.map((work: any) => (
 					<WorkEntry key={work.node.title} work={work.node} />
 				))}
