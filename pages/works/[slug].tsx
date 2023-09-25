@@ -45,7 +45,10 @@ const Work = ({ work }: any) => {
 						</span>
 					</h2>
 				</div>
-				<div className="indent-4">{work.longDescription}</div>
+				<div
+					className="prose text-black dark:text-white"
+					dangerouslySetInnerHTML={{ __html: work.content.html }}
+				/>
 				<div>
 					{work.workInfos.map((info: any) => (
 						<InfoEntry
