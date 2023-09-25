@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
+import {
+	AiFillGithub,
+	AiFillLinkedin,
+	AiFillTwitterCircle,
+} from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 
 import Layout from "../components/layouts/content";
@@ -46,13 +50,19 @@ const Home = () => {
 					<h1 className="main-heading">Work</h1>
 					<div className="py-4">
 						<p className="indent-4">
-							I am a 20-year-old programmer from Helsinki. I got
+							I am a 21-year-old programmer from Helsinki. I got
 							my first computer at 10 years old, after which I
 							haven't been able to stop programming. Whether it be
 							competetive programming with c++, modern web
 							development with javascript, game development with
 							java or linux server administration, there isn't
 							much I haven't tried.
+						</p>
+						<p className="indent-4">
+							Currently, I am most comfortable and proficient in
+							Python and TypeScript, and I am excited to leverage
+							these skills to contribute effectively as a software
+							developer.
 						</p>
 						<div className="flex justify-center mt-6">
 							<Link
@@ -107,6 +117,11 @@ const Home = () => {
 							text="@enderguru"
 							link="https://twitter.com/enderguru"
 							icon={<AiFillTwitterCircle />}
+						/>
+						<SocialEntry
+							text="linkedin.com/in/viljami-ranta"
+							link="https://www.linkedin.com/in/viljami-ranta/"
+							icon={<AiFillLinkedin />}
 						/>
 					</ul>
 				</div>
