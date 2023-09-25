@@ -32,7 +32,9 @@ export const getWorkDetails = (slug: string) => {
 			work(where: { slug: $slug }) {
 				createdYear
 				description
-				longDescription
+				content {
+					html
+				}
 				id
 				slug
 				title
@@ -40,7 +42,7 @@ export const getWorkDetails = (slug: string) => {
 					url
 				}
 				workInfos {
-                    id
+					id
 					title
 					text
 					isLink
