@@ -27,7 +27,11 @@ export const getWorks = () => {
 
 	const req = request(graphqlAPI, query);
 
-	return req.then((response) => response.worksConnection.edges);
+	return req
+		.then((response) => response.worksConnection.edges)
+		.catch((error) => {
+			throw new Error(error);
+		});
 };
 
 export const getWorkDetails = (slug: string) => {
@@ -57,5 +61,9 @@ export const getWorkDetails = (slug: string) => {
 	`;
 
 	const req = request(graphqlAPI, query, { slug });
-	return req.then((response) => response.work);
+	return req
+		.then((response) => response.work)
+		.catch((error) => {
+			throw new Error(error);
+		});
 };
