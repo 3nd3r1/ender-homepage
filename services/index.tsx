@@ -1,7 +1,10 @@
 import { request, gql } from "graphql-request";
 
 const graphqlAPI: string = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
-console.log(graphqlAPI);
+
+if (!graphqlAPI) {
+	throw new Error("Missing environment variable GRAPHCMS_ENDPOINT");
+}
 
 export const getWorks = () => {
 	const query = gql`
