@@ -33,7 +33,7 @@ const Home = () => {
 				<div className="flex flex-col-reverse md:flex-row gap-10 justify-between items-center ">
 					<div>
 						<h1 className="text-5xl">Viljami Ranta</h1>
-						<p className="text-lg">Developer, Problem-solver</p>
+						<p className="text-lg">Software Engineer</p>
 					</div>
 					<div className="relative w-40 h-40">
 						<span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
@@ -109,7 +109,7 @@ const Home = () => {
 					<h1 className="main-heading">Socials</h1>
 					<ul className="py-4 px-4">
 						<SocialEntry
-							text="@3nd3r1"
+							text="github.com/3nd3r1"
 							link="https://github.com/3nd3r1"
 							icon={<AiFillGithub />}
 						/>
