@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 
 body {
-    @apply dark:bg-neutral-900 dark:text-white  bg-stone-200 text-slate-900;
+    @apply dark:bg-black dark:text-white  bg-stone-200 text-slate-900;
     @apply transition-colors ease-in-out duration-300;
 }
 .main-heading {
@@ -14,5 +14,5 @@ body {
 }
 
 .home-page-content a, .work-page-content a {
-    @apply dark:text-purple-400 text-purple-700
+    @apply dark:text-purple-600 text-purple-700
 }

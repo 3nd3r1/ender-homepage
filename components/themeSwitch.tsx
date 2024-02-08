@@ -31,7 +31,7 @@ const ThemeSwitch = () => {
 				transition={{ duration: 0.2 }}
 			>
 				<button
-					className="p-2 dark:bg-amber-200 bg-purple-500 dark:text-black text-lg rounded-lg dark:hover:bg-amber-300 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"
+					className="p-2 dark:bg-orange-500 bg-purple-500 dark:text-black text-lg rounded-lg dark:hover:bg-orange-600 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"
 					onClick={() => setIsDarkTheme(!isDarkTheme)}
 				>
 					{isDarkTheme ? <CiLight /> : <CiDark />}

@@ -49,7 +49,7 @@ const Navbar = ({ path }: any) => {
 								href="https://github.com/3nd3r1/ender-homepage"
 								className="flex flex-row items-center mb-2 gap-1"
 							>
-								<AiFillGithub />
+								<AiFillGithub className="mb-0.5" />
 								Source
 							</Link>
 						</div>
