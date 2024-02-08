@@ -8,6 +8,8 @@ import {
 } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 
+import { SiLeetcode } from "react-icons/si";
+
 import Layout from "../components/layouts/content";
 
 const BioEntry = ({ children, year }: any) => (
@@ -18,7 +20,7 @@ const BioEntry = ({ children, year }: any) => (
 );
 
 const SocialEntry = ({ text, link, icon }: any) => (
-	<li className="flex flex-row items-center text-xl gap-2 align-middle dark:text-purple-400 text-purple-700">
+	<li className="flex flex-row items-center text-xl gap-2 align-middle dark:text-purple-600 text-purple-700">
 		{icon}
 		<Link className="mb-1" target="_blank" href={link}>
 			{text}
@@ -66,7 +68,7 @@ const Home = () => {
 						</p>
 						<div className="flex justify-center mt-6">
 							<Link
-								className="!text-black bg-purple-400 hover:bg-purple-500 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2"
+								className="!text-black bg-purple-600 hover:bg-purple-700 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
 								href="/works"
 							>
 								My Portfolio
@@ -82,23 +84,25 @@ const Home = () => {
 							Born in Helsinki, Finland.
 						</BioEntry>
 						<BioEntry year="2021">
-							Completed High School in The French-Finnish school
-							of Helsinki
+							Completed High School at the{" "}
+                            <Link href="https://hrsk.fi" target="_blank">
+                                French-Finnish school of Helsinki
+                            </Link>
 						</BioEntry>
 						<BioEntry year="2022">
-							Studying Computer Science at the{" "}
+							Started studying Computer Science at the{" "}
 							<Link href="https://helsinki.fi" target="_blank">
 								University of Helsinki
 							</Link>
 						</BioEntry>
 						<BioEntry year="2022">
-							Teaching programming to kids at{" "}
+							Taught programming at{" "}
 							<Link href="https://kodarit.fi" target="_blank">
 								Kodarit
 							</Link>
 						</BioEntry>
 						<BioEntry year="2023">
-							Web developer at{" "}
+							Founded{" "}
 							<Link href="https://vebbi.fi" target="_blank">
 								Vebbi
 							</Link>
@@ -122,6 +126,11 @@ const Home = () => {
 							text="linkedin.com/in/viljami-ranta"
 							link="https://www.linkedin.com/in/viljami-ranta/"
 							icon={<AiFillLinkedin />}
+						/>
+						<SocialEntry
+							text="leetcode.com/3nd3r1"
+							link="https://leetcode.com/3nd3r1/"
+							icon={<SiLeetcode/>}
 						/>
 					</ul>
 				</div>
