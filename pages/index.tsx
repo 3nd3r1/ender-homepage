@@ -52,10 +52,10 @@ const Home = () => {
 					<h1 className="main-heading">Work</h1>
 					<div className="py-4">
 						<p className="indent-4">
-							I am a 21-year-old programmer from Helsinki. I got
-							my first computer at 10 years old, after which I
-							haven't been able to stop programming. Whether it be
-							competetive programming with c++, modern web
+							I am a 21-year-old software engineer from Helsinki.
+							I got my first computer at 10 years old, after which
+							I haven't been able to stop programming. Whether it
+							be competetive programming with c++, modern web
 							development with javascript, game development with
 							java or linux server administration, there isn't
 							much I haven't tried.
@@ -64,7 +64,7 @@ const Home = () => {
 							Currently, I am most comfortable and proficient in
 							Python and TypeScript, and I am excited to leverage
 							these skills to contribute effectively as a software
-							developer.
+							engineer.
 						</p>
 						<div className="flex justify-center mt-6">
 							<Link
@@ -85,9 +85,9 @@ const Home = () => {
 						</BioEntry>
 						<BioEntry year="2021">
 							Completed High School at the{" "}
-                            <Link href="https://hrsk.fi" target="_blank">
-                                French-Finnish school of Helsinki
-                            </Link>
+							<Link href="https://hrsk.fi" target="_blank">
+								French-Finnish school of Helsinki
+							</Link>
 						</BioEntry>
 						<BioEntry year="2022">
 							Started studying Computer Science at the{" "}
@@ -105,6 +105,12 @@ const Home = () => {
 							Founded{" "}
 							<Link href="https://vebbi.fi" target="_blank">
 								Vebbi
+							</Link>
+						</BioEntry>
+						<BioEntry year="2024">
+							Software Engineer Trainee at{" "}
+							<Link href="https://ericsson.com" target="_blank">
+								Ericsson
 							</Link>
 						</BioEntry>
 					</div>
@@ -130,7 +136,7 @@ const Home = () => {
 						<SocialEntry
 							text="leetcode.com/3nd3r1"
 							link="https://leetcode.com/3nd3r1/"
-							icon={<SiLeetcode/>}
+							icon={<SiLeetcode />}
 						/>
 					</ul>
 				</div>
