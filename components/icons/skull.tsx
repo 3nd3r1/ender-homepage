@@ -1,20 +1,20 @@
 const SkullIcon = (props: any) => {
-	return (
-		<svg
-			className={props.className}
-			version="1.0"
-			xmlns="http://www.w3.org/2000/svg"
-			width={props.width}
-			height={props.height}
-			viewBox="0 0 460.000000 460.000000"
-			preserveAspectRatio="xMidYMid meet"
-		>
-			<g
-				transform="translate(0.000000,460.000000) scale(0.100000,-0.100000)"
-				stroke="none"
-			>
-				<path
-					d="M1228 4173 c-9 -10 -21 -36 -28 -58 -7 -22 -27 -74 -45 -115 -18 -41
+    return (
+        <svg
+            className={props.className}
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width={props.width}
+            height={props.height}
+            viewBox="0 0 460.000000 460.000000"
+            preserveAspectRatio="xMidYMid meet"
+        >
+            <g
+                transform="translate(0.000000,460.000000) scale(0.100000,-0.100000)"
+                stroke="none"
+            >
+                <path
+                    d="M1228 4173 c-9 -10 -21 -36 -28 -58 -7 -22 -27 -74 -45 -115 -18 -41
 -51 -122 -75 -180 -52 -127 -116 -281 -140 -335 -9 -22 -23 -56 -30 -75 -7
 -19 -21 -53 -30 -75 -10 -22 -32 -76 -49 -120 -18 -44 -38 -93 -46 -110 -8
 -16 -32 -75 -54 -130 -21 -55 -60 -150 -86 -212 l-46 -112 63 -77 c35 -42 90
@@ -40,10 +40,10 @@ m180 -370 c5 -10 12 -216 16 -458 4 -242 11 -649 15 -905 5 -256 8 -466 7
 -536 241 -581 l18 -51 -35 -41 c-19 -22 -65 -75 -104 -119 -38 -43 -157 -179
 -264 -301 -106 -123 -195 -221 -197 -219 -7 6 25 1817 31 1828 8 12 95 12 95
 0z"
-				/>
-			</g>
-		</svg>
-	);
+                />
+            </g>
+        </svg>
+    );
 };
 
 export default SkullIcon;
