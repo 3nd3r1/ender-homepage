@@ -7,25 +7,25 @@ if (!graphqlAPI) {
 }
 
 export const getWorks = () => {
-	const query = gql`
-		query Assets {
-			worksConnection {
-				edges {
-					node {
-						id
-						title
-						description
-						slug
-						image {
-							url
-						}
-					}
-				}
-			}
-		}
-	`;
+    const query = gql`
+        query Assets {
+            worksConnection {
+                edges {
+                    node {
+                        id
+                        title
+                        description
+                        slug
+                        image {
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    `;
 
-	const req = request(graphqlAPI, query);
+    const req = request(graphqlAPI, query);
 
 	return req
 		.then((response) => response.worksConnection.edges)
@@ -35,30 +35,30 @@ export const getWorks = () => {
 };
 
 export const getWorkDetails = (slug: string) => {
-	const query = gql`
-		query GetProjectDetails($slug: String!) {
-			work(where: { slug: $slug }) {
-				createdYear
-				description
-				content {
-					html
-				}
-				id
-				slug
-				title
-				image {
-					url
-				}
-				workInfos {
-					id
-					title
-					text
-					isLink
-					url
-				}
-			}
-		}
-	`;
+    const query = gql`
+        query GetProjectDetails($slug: String!) {
+            work(where: { slug: $slug }) {
+                createdYear
+                description
+                content {
+                    html
+                }
+                id
+                slug
+                title
+                image {
+                    url
+                }
+                workInfos {
+                    id
+                    title
+                    text
+                    isLink
+                    url
+                }
+            }
+        }
+    `;
 
 	const req = request(graphqlAPI, query, { slug });
 	return req
