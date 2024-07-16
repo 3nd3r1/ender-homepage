@@ -44,14 +44,6 @@ const Navbar = ({ path }: any) => {
                         </div>
                         <div className="flex-row gap-2 align-middle items-center flex">
                             <LinkComp path={path} text="Works" url="/works" />
-                            <Link
-                                target="_blank"
-                                href="https://github.com/3nd3r1/ender-homepage"
-                                className="flex flex-row items-center mb-2 gap-1"
-                            >
-                                <AiFillGithub className="mb-0.5" />
-                                Source
-                            </Link>
                         </div>
                     </div>
                     <div className="px-4">

@@ -144,6 +144,16 @@ const Home = () => {
                     </ul>
                 </div>
             </div>
+            <footer className="mt-12 flex justify-center">
+                <Link
+                    target="_blank"
+                    href="https://github.com/3nd3r1/ender-homepage"
+                    className="flex flex-row items-center mb-2 gap-1 text-lg"
+                >
+                    <AiFillGithub className="text-2xl" />
+                    <span>Source</span>
+                </Link>
+            </footer>
         </Layout>
     );
 };
