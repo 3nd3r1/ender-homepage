@@ -37,7 +37,7 @@ const Home = () => {
                         <h1 className="text-5xl">Viljami Ranta</h1>
                         <div className="flex flex-row items-center">
                             <p className="text-lg">Software Engineer</p>
-                            <span className="bg-white w-2 h-6 animate-cursor-blink"></span>
+                            <span className="bg-slate-900 dark:bg-white w-2 h-6 animate-cursor-blink"></span>
                         </div>
                     </div>
                     <div className="relative w-40 h-40">
@@ -59,20 +59,20 @@ const Home = () => {
                             I got my first computer at 10 years old, after which
                             I haven't been able to stop programming. Whether it
                             be competetive programming with c++, modern web
-                            development with javascript, game development with
-                            java or linux server administration, there isn't
-                            much I haven't tried.
+                            development with TypeScripts, game development with
+                            Java or cloud orchestration, there isn't much I
+                            haven't tried.
                         </p>
                         <p className="indent-4">
-                            Currently, I am most comfortable and proficient in
-                            Python and TypeScript, and I am excited to leverage
-                            these skills to contribute effectively as a software
-                            engineer.
+                            I'm currently diving into the exciting world of
+                            Cloud Native solutions, harnessing the power of
+                            Kubernetes and Helm at Ericsson!{" "}
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
                                 className="!text-white bg-purple-800 hover:bg-purple-900 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
                                 href="/works"
+                                scroll={false}
                             >
                                 My Portfolio
                                 <IoIosArrowForward className="text-sm" />
@@ -84,7 +84,7 @@ const Home = () => {
                     <h1 className="main-heading">Bio</h1>
                     <div className="flex flex-col py-4">
                         <BioEntry year="2002">
-                            Born in Helsinki, Finland.
+                            Born in Helsinki, Finland
                         </BioEntry>
                         <BioEntry year="2021">
                             Completed High School at the{" "}

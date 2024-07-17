@@ -33,9 +33,7 @@ const Main = ({ children, router }: any) => {
                 <meta property="og:image" content="/images/me.JPG" />
             </Head>
             <Navbar path={"/" + router.asPath.split("/")[1]} />
-            <main className="">
-                <div className="mx-auto max-w-4xl py-10">{children}</div>
-            </main>
+            <main className="pt-24 pb-12">{children}</main>
         </div>
     );
 };

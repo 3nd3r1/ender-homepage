@@ -34,7 +34,7 @@ const Work = ({ work }: any) => {
         <Layout title={work.title}>
             <div className="work-page-content flex flex-col gap-4">
                 <div className="flex flex-row">
-                    <Link href="/works" className="text-lg">
+                    <Link href="/works" className="text-lg" scroll={false}>
                         works
                     </Link>
                     <span className="px-2 text-lg">/</span>

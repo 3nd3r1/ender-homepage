@@ -9,7 +9,7 @@ import defaultImage from "../public/images/default-image.jpg";
 import { getWorks } from "../services";
 
 const WorkEntry = ({ work }: any) => (
-    <Link href={"/works/" + work.slug}>
+    <Link href={"/works/" + work.slug} scroll={false}>
         <div className="flex flex-col rounded-lg w-60 h-56 gap-1">
             <Image
                 src={work.image ? work.image.url : defaultImage}

@@ -4,7 +4,7 @@ import React from "react";
 const Logo = (props: any) => {
     const { path } = props;
     return (
-        <Link href="/">
+        <Link href="/" scroll={false}>
             <div className="flex flex-row items-center align-middle gap-1 font-term text-lg font-bold">
                 <span className="text-purple-500">viljamiranta</span>
                 <span className="text-fuchsia-900">@</span>

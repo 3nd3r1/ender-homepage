@@ -9,11 +9,19 @@ import { AnimatePresence } from "framer-motion";
 function Website({ Component, pageProps, router }: AppProps) {
     return (
         <ThemeProvider enableSystem={true} attribute="class">
-            <AnimatePresence mode="wait" initial={true}>
-                <Layout router={router}>
+            <Layout router={router}>
+                <AnimatePresence
+                    mode="wait"
+                    initial={true}
+                    onExitComplete={() => {
+                        if (typeof window !== "undefined") {
+                            window.scrollTo({ top: 0 });
+                        }
+                    }}
+                >
                     <Component {...pageProps} key={router.route} />
-                </Layout>
-            </AnimatePresence>
+                </AnimatePresence>
+            </Layout>
         </ThemeProvider>
     );
 }
