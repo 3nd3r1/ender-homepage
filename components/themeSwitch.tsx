@@ -25,13 +25,13 @@ const ThemeSwitch = () => {
             <motion.div
                 className="inline-block"
                 key={isDarkTheme ? "dark" : "light"}
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 20, opacity: 0 }}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
                 transition={{ duration: 0.2 }}
             >
                 <button
-                    className="p-2 dark:bg-orange-500 bg-purple-500 dark:text-black text-lg rounded-lg dark:hover:bg-orange-600 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"
+                    className="p-2 dark:bg-orange-500 bg-purple-500 dark:text-black text-lg dark:hover:bg-orange-600 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"
                     onClick={() => setIsDarkTheme(!isDarkTheme)}
                 >
                     {isDarkTheme ? <CiLight /> : <CiDark />}

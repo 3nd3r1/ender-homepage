@@ -1,65 +1,79 @@
 import Link from "next/link";
 import Logo from "./logo";
+
 import ThemeSwitch from "./themeSwitch";
-import { AiFillGithub } from "react-icons/ai";
-import { FaBars } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+const TriangleLeft = () => (
+    <div className="w-0 h-0 pr-1 border-l-stone-100 dark:border-l-black border-t-[11.5px] border-t-transparent border-b-[11.5px] border-b-transparent border-l-[11.5px]"></div>
+);
+const TriangleRight = () => (
+    <div className="w-0 h-0 pl-1 border-l-purple-500 dark:border-l-purple-700 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-l-[12px]"></div>
+);
 
 const LinkComp = ({ text, url, path }: any) => {
     const active = path === url;
     return (
-        <Link key={text} href={url}>
-            <p
-                className={`font-term text-lg relative mb-2 hover:before:content-['>_'] before:absolute before:left-[-15px] ${
-                    active ? "before:content-['>_']" : ""
-                }`}
+        <Link key={text} href={url} scroll={false}>
+            <div
+                className={`flex flex-row items-center align-middle font-bold ${active ? "px-0" : "px-4"}`}
             >
-                {text}
-            </p>
+                <div
+                    className={`flex flex-row items-center ${active ? "bg-purple-500 dark:bg-purple-700" : ""} gap-0 m-0 p-0`}
+                >
+                    {active ? <TriangleLeft /> : ""}
+                    {text}
+                </div>
+                {active ? <TriangleRight /> : ""}
+            </div>
         </Link>
     );
 };
 
 const Navbar = ({ path }: any) => {
+    const [isOnTop, setIsOnTop] = useState(true);
+
+    useEffect(() => {
+        if (window.scrollY > 0) {
+            setIsOnTop(false);
+        }
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 0) {
+                setIsOnTop(false);
+            } else {
+                setIsOnTop(true);
+            }
+        });
+    }, []);
+
     return (
-        <motion.div
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.2 }}
-        >
-            <nav className="w-100 px-4">
-                <div className=" flex flex-wrap max-w-4xl mx-auto py-4 justify-between items-center">
-                    <div className="flex flex-row flex-grow">
-                        <div className="grow max-w-xs">
-                            <div className="hidden md:block">
-                                <Logo path={path} />
-                            </div>
-                            <div className="block md:hidden">
-                                <Link href="/">
-                                    <h2 className="font-term text-xl font-bold">
-                                        Viljami
-                                    </h2>
-                                </Link>
-                            </div>
+        <header className="fixed w-screen z-50">
+            <nav
+                className={`w-full px-4 ${!isOnTop ? "bg-stone-100 dark:bg-black" : ""}`}
+            >
+                <div className="flex flex-wrap max-w-6xl mx-auto justify-around items-center">
+                    <div className="w-1/3">
+                        <div className="hidden md:block">
+                            <Logo path={path} />
                         </div>
-                        <div className="flex-row gap-2 align-middle items-center flex">
-                            <LinkComp path={path} text="Works" url="/works" />
-                            <Link
-                                target="_blank"
-                                href="https://github.com/3nd3r1/ender-homepage"
-                                className="flex flex-row items-center mb-2 gap-1"
-                            >
-                                <AiFillGithub className="mb-0.5" />
-                                Source
+                        <div className="block md:hidden">
+                            <Link href="/" scroll={false}>
+                                <h2 className="font-term text-xl font-bold">
+                                    Viljami
+                                </h2>
                             </Link>
                         </div>
                     </div>
-                    <div className="px-4">
+                    <div className="w-1/3 flex justify-center ">
+                        <LinkComp path={path} text="Works" url="/works" />
+                    </div>
+                    <div className="w-1/3 flex justify-center">
                         <ThemeSwitch />
                     </div>
                 </div>
             </nav>
-        </motion.div>
+        </header>
     );
 };
 
