@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
 	reactStrictMode: true,
 	images: {
 		unoptimized: true,
@@ -16,3 +16,5 @@ module.exports = {
 		ignoreBuildErrors: true,
 	},
 };
+
+export default nextConfig;;

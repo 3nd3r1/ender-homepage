@@ -6,7 +6,7 @@ if (!graphqlAPI) {
 	throw new Error("Missing environment variable GRAPHCMS_ENDPOINT");
 }
 
-export const getWorks = () => {
+export const getWorks = async () => {
     const query = gql`
         query Assets {
             worksConnection {
@@ -25,16 +25,12 @@ export const getWorks = () => {
         }
     `;
 
-    const req = request(graphqlAPI, query);
+    const response = await request(graphqlAPI, query);
 
-	return req
-		.then((response) => response.worksConnection.edges)
-		.catch((error) => {
-			throw new Error(error);
-		});
+	return response.worksConnection.edges
 };
 
-export const getWorkDetails = (slug: string) => {
+export const getWorkDetails = async (slug: string) => {
     const query = gql`
         query GetProjectDetails($slug: String!) {
             work(where: { slug: $slug }) {
@@ -60,10 +56,6 @@ export const getWorkDetails = (slug: string) => {
         }
     `;
 
-	const req = request(graphqlAPI, query, { slug });
-	return req
-		.then((response) => response.work)
-		.catch((error) => {
-			throw new Error(error);
-		});
+	const response = await request(graphqlAPI, query, { slug });
+	return response.work
 };

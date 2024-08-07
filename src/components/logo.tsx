@@ -1,8 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Logo = (props: any) => {
-    const { path } = props;
+const Logo = ({ pathname }: { pathname: string }) => {
     return (
         <Link href="/" scroll={false}>
             <div className="flex flex-row items-center align-middle gap-1 font-term text-lg font-bold">
@@ -10,7 +9,11 @@ const Logo = (props: any) => {
                 <span className="text-fuchsia-900">@</span>
                 <span className="text-orange-500">mysite</span>
                 <span>:</span>
-                <span className="text-purple-500">~{path}</span>$
+                <span className="text-purple-500">
+                    ~/
+                    {pathname.split("/")[1]}
+                </span>
+                $
             </div>
         </Link>
     );
