@@ -1,6 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const sitemapConfig = {
     siteUrl: process.env.SITE_URL || "https://viljamiranta.fi",
-    generateRobotsTxt: true, // (optional)
-    // ...other options
+    generateRobotsTxt: true,
 };
+
+export default sitemapConfig;

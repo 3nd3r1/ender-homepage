@@ -1,18 +1,19 @@
 import React from "react";
 import Image from "next/image";
-
-import Layout from "../components/layouts/content";
+import { Metadata } from "next";
 import Link from "next/link";
 
-import defaultImage from "../public/images/default-image.jpg";
+import { getWorks } from "@/services/works";
 
-import { getWorks } from "../services";
+export const metadata: Metadata = {
+    title: "Works | Viljami Ranta",
+};
 
 const WorkEntry = ({ work }: any) => (
     <Link href={"/works/" + work.slug} scroll={false}>
         <div className="flex flex-col rounded-lg w-60 h-56 gap-1">
             <Image
-                src={work.image ? work.image.url : defaultImage}
+                src={work.image ? work.image.url : "images/default-image.jpg"}
                 alt={work.title}
                 width={1000}
                 height={1000}
@@ -24,27 +25,19 @@ const WorkEntry = ({ work }: any) => (
     </Link>
 );
 
-const Works = ({ works }: any) => {
+const Works = async () => {
+    const works = await getWorks()
+
     return (
-        <Layout title="Works">
+        <div>
             <h1 className="font-bold text-xl">Works</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 py-4 px-2 justify-items-center gap-24">
                 {works.reverse().map((work: any) => (
                     <WorkEntry key={work.node.title} work={work.node} />
                 ))}
             </div>
-        </Layout>
+        </div>
     );
 };
-
-export function getStaticProps() {
-    return getWorks()
-        .then((works) => {
-            return {
-                props: { works },
-            };
-        })
-        .catch((error) => console.log(error));
-}
 
 export default Works;

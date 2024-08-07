@@ -10,8 +10,11 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import { SiLeetcode } from "react-icons/si";
 
-import Layout from "../components/layouts/content";
-
+const MainHeading = ({ text }: { text: string }) => (
+    <h1 className="underline underline-offset-8 decoration-gray-600 decoration-4 text-2xl before:content-['>_']">
+        {text}
+    </h1>
+);
 const BioEntry = ({ children, year }: any) => (
     <div className="pl-[3.4em] indent-[-3.4em]">
         <span className="mr-4 font-bold">{year}</span>
@@ -30,9 +33,9 @@ const SocialEntry = ({ text, link, icon }: any) => (
 
 const Home = () => {
     return (
-        <Layout title="Home">
-            <div className="flex flex-col gap-8 home-page-content">
-                <div className="flex flex-col-reverse md:flex-row gap-10 justify-between items-center ">
+        <>
+            <div className="page-content flex flex-col gap-8">
+                <div className="flex flex-col-reverse md:flex-row gap-10 justify-between items-center">
                     <div>
                         <h1 className="text-5xl">Viljami Ranta</h1>
                         <div className="flex flex-row items-center">
@@ -44,7 +47,7 @@ const Home = () => {
                         <span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
                             <Image
                                 src="/images/me.JPG"
-                                alt="Söpö meitsi"
+                                alt="Picture of Viljami Ranta"
                                 fill
                                 className="rounded-full object-cover"
                             />
@@ -52,36 +55,37 @@ const Home = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className="main-heading">Work</h1>
+                    <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I am a 21-year-old software engineer from Helsinki.
-                            I got my first computer at 10 years old, after which
-                            I haven't been able to stop programming. Whether it
-                            be competetive programming with c++, modern web
-                            development with TypeScripts, game development with
-                            Java or cloud orchestration, there isn't much I
-                            haven't tried.
+                            I am a 21-year-old software engineer from Helsinki
+                            with a deep passion for programming that began when
+                            I received my first computer at the age of 10. My
+                            experience spans competitive programming with C++,
+                            modern web development with TypeScript, game
+                            development with Java, and cloud orchestration.
                         </p>
                         <p className="indent-4">
-                            I'm currently diving into the exciting world of
-                            Cloud Native solutions, harnessing the power of
-                            Kubernetes and Helm at Ericsson!{" "}
+                            Currently, I am delving into the dynamic field of
+                            Cloud Native solutions, utilizing Kubernetes and
+                            Helm at Ericsson. I am eager to bring my diverse
+                            skill set and enthusiasm for technology to new and
+                            challenging projects.
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
-                                className="!text-white bg-purple-800 hover:bg-purple-900 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
+                                className="!text-black !dark:text-white bg-purple-500 dark:bg-purple-800 hover:bg-purple-400 dark:hover:bg-purple-900 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
                                 href="/works"
                                 scroll={false}
                             >
-                                My Portfolio
+                                My Works
                                 <IoIosArrowForward className="text-sm" />
                             </Link>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h1 className="main-heading">Bio</h1>
+                    <MainHeading text="Bio" />
                     <div className="flex flex-col py-4">
                         <BioEntry year="2002">
                             Born in Helsinki, Finland
@@ -119,7 +123,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className="main-heading">Socials</h1>
+                    <MainHeading text="Socials" />
                     <ul className="py-4 px-4">
                         <SocialEntry
                             text="github.com/3nd3r1"
@@ -154,7 +158,7 @@ const Home = () => {
                     <span>Source</span>
                 </Link>
             </footer>
-        </Layout>
+        </>
     );
 };
 
