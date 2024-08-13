@@ -1,20 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	reactStrictMode: true,
-	images: {
-		unoptimized: true,
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "media.graphassets.com",
-				port: "",
-				pathname: "/**",
-			},
-		],
-	},
-	typescript: {
-		ignoreBuildErrors: true,
-	},
+    output: "export",
+    images: {
+        unoptimized: true,
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "media.graphassets.com",
+                port: "",
+                pathname: "/**",
+            },
+        ],
+    },
 };
 
-export default nextConfig;;
+export default nextConfig;

@@ -31,7 +31,7 @@ const SocialEntry = ({ text, link, icon }: any) => (
     </li>
 );
 
-const Home = () => {
+const HomePage = () => {
     return (
         <>
             <div className="page-content flex flex-col gap-8">
@@ -162,4 +162,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomePage;
