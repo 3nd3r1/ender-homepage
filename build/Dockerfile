@@ -1,5 +1,8 @@
 FROM node:20-alpine AS builder
 
+ARG GRAPHCMS_ENDPOINT=${GRAPHCMS_ENDPOINT}
+ENV GRAPHCMS_ENDPOINT=${GRAPHCMS_ENDPOINT}
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
