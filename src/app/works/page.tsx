@@ -4,12 +4,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import { getWorks } from "@/services/works";
+import { Work } from "@/lib/definitions";
 
 export const metadata: Metadata = {
     title: "Works | Viljami Ranta",
 };
 
-const WorkEntry = ({ work }: any) => (
+const WorkEntry = ({ work }: { work: Work }) => (
     <Link href={"/works/" + work.slug} scroll={false}>
         <div className="flex flex-col rounded-lg w-60 h-56 gap-1">
             <Image
@@ -25,19 +26,19 @@ const WorkEntry = ({ work }: any) => (
     </Link>
 );
 
-const Works = async () => {
-    const works = await getWorks()
+const WorksPage = async () => {
+    const works = await getWorks();
 
     return (
         <div>
             <h1 className="font-bold text-xl">Works</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 py-4 px-2 justify-items-center gap-24">
-                {works.reverse().map((work: any) => (
-                    <WorkEntry key={work.node.title} work={work.node} />
+                {works.reverse().map((work: Work) => (
+                    <WorkEntry key={work.title} work={work} />
                 ))}
             </div>
         </div>
     );
 };
 
-export default Works;
+export default WorksPage;
