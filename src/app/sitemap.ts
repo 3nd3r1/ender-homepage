@@ -11,29 +11,34 @@ type SitemapEntry = {
     priority: number;
 };
 
+const siteUrl = process.env.SITE_URL ?? "https://viljamiranta.fi";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const works = await getWorks();
 
-    const worksSitemap = works.map((work: Work) => ({
-        url: "/works/" + work.slug,
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 0.7,
-    } as SitemapEntry));
+    const worksSitemap = works.map(
+        (work: Work) =>
+            ({
+                url: siteUrl + "/works/" + work.slug,
+                lastModified: new Date(),
+                changeFrequency: "weekly",
+                priority: 0.7,
+            }) as SitemapEntry,
+    );
 
     return [
         {
-            url: "/",
+            url: siteUrl + "/",
             lastModified: new Date(),
             changeFrequency: "weekly",
             priority: 1,
         },
         {
-            url: "/works",
+            url: siteUrl + "/works",
             lastModified: new Date(),
             changeFrequency: "weekly",
             priority: 0.8,
         },
-        ...worksSitemap
+        ...worksSitemap,
     ];
 }
