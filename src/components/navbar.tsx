@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Logo from "./logo";
 
-import ThemeSwitch from "./themeSwitch";
+import ThemeSwitch from "./theme-switch";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
