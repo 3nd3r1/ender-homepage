@@ -8,21 +8,24 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const ThemeSwitch = () => {
     const [mounted, setMounted] = useState(false);
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
     if (!mounted) {
-        return <div className="my-[17px]"></div>;
+        return (
+            <div className="p-[17px] dark:bg-orange-500 bg-purple-500 dark:text-black text-lg dark:hover:bg-orange-600 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out">
+            </div>
+        );
     }
 
     return (
         <AnimatePresence mode="wait" initial={false}>
             <motion.div
                 className="inline-block"
-                key={theme}
+                key={resolvedTheme}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 20, opacity: 0 }}
@@ -31,10 +34,10 @@ const ThemeSwitch = () => {
                 <button
                     className="p-2 dark:bg-orange-500 bg-purple-500 dark:text-black text-lg dark:hover:bg-orange-600 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"
                     onClick={() =>
-                        setTheme(theme === "light" ? "dark" : "light")
+                        setTheme(resolvedTheme === "light" ? "dark" : "light")
                     }
                 >
-                    {theme === "dark" ? <CiLight /> : <CiDark />}
+                    {resolvedTheme === "dark" ? <CiLight /> : <CiDark />}
                 </button>
             </motion.div>
         </AnimatePresence>
