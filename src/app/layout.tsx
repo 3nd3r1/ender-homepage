@@ -69,20 +69,22 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="dark:bg-black dark:text-white bg-white text-slate-900 transition-colors ease-in-out duration-300">
+            <body>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                 >
-                    <Navbar />
-                    <main className="pt-24 pb-12">
-                        <Transition>
-                            <article className="mx-auto max-w-lg font-term px-4">
-                                {children}
-                            </article>
-                        </Transition>
-                    </main>
+                    <div className="min-h-screen dark:bg-black dark:text-white bg-white text-slate-900 transition-colors ease-in-out duration-300">
+                        <Navbar />
+                        <main className="pt-24 pb-12">
+                            <Transition>
+                                <article className="mx-auto max-w-lg font-term px-4">
+                                    {children}
+                                </article>
+                            </Transition>
+                        </main>
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
