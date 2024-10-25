@@ -58,19 +58,22 @@ const HomePage = () => {
                     <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I am a 21-year-old software engineer from Helsinki
-                            with a deep passion for programming that began when
-                            I received my first computer at the age of 10. My
-                            experience spans competitive programming with C++,
-                            modern web development with TypeScript, game
-                            development with Java, and cloud orchestration.
+                            I am a software engineer based in Helsinki with a
+                            passion for creating robust and scalable software
+                            solutions. My journey in tech began at 10 when I
+                            recieved my first computer, sparking a career that
+                            has since expanded into competitive programming with
+                            C++, modern web development using TypeScript, game
+                            development in Java, and cloud infrastructure.
                         </p>
                         <p className="indent-4">
-                            Currently, I am delving into the dynamic field of
-                            Cloud Native solutions, utilizing Kubernetes and
-                            Helm at Ericsson. I am eager to bring my diverse
-                            skill set and enthusiasm for technology to new and
-                            challenging projects.
+                            Currently, I'm honing my skills in Cloud Native
+                            technologies, working extensively with Kubernetes
+                            and Go, developing complex projects at Ericsson. With a
+                            focus on reliability and performance, I'm excited to
+                            apply my evolving expertise in cloud orchestration,
+                            backend development, and scalable architecture to
+                            make a meaningful impact on future projects.
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
