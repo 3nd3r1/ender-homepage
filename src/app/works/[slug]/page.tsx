@@ -54,7 +54,7 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                 </h2>
             </div>
             <div
-                className="prose text-black dark:text-white"
+                className="prose dark:prose-invert"
                 dangerouslySetInnerHTML={{ __html: workDetails.content.html }}
             />
             <div>
