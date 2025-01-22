@@ -1,10 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 
 import { BiLinkExternal } from "react-icons/bi";
 
 import { getWorkDetails, getWorks } from "@/services/works";
 import { Work, WorkInfo } from "@/lib/definitions";
+
+export async function generateMetadata({
+    params,
+}: {
+    params: { slug: string };
+}): Promise<Metadata> {
+    const workDetails = await getWorkDetails(params.slug);
+
+    return {
+        title: workDetails.title + " | Viljami Ranta",
+        description: workDetails.description,
+        openGraph: {
+            images: [workDetails.image.url],
+        },
+        twitter: {
+            title: workDetails.title + " | Viljami Ranta",
+            description: workDetails.description,
+            images: [workDetails.image.url],
+        },
+    };
+}
 
 export async function generateStaticParams() {
     const works = await getWorks();

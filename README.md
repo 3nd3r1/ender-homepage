@@ -13,15 +13,19 @@
 ## Project structure
 
 ```
-$PROJECT_ROOT
-│   # Page files
-├── pages
-│   # Next components
-├── components
-│   # Static files for images
+.
+│   # Docker related files
+├── build
+│   # Static files like images
 ├── public
-│   # Service files that connect to APIs
-├── services
-│   # SCSS files
-└── styles
+└── src/
+    │   # Page content
+    ├── app
+    │   # Next components
+    ├── components
+    │   # Reusable utility
+    ├── lib
+    │   # Interaction with external APIs
+    └── services
 ```
+
