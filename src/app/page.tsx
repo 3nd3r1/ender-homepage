@@ -58,22 +58,13 @@ const HomePage = () => {
                     <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I am a software engineer based in Helsinki with a
-                            passion for creating robust and scalable software
-                            solutions. My journey in tech began at 10 when I
-                            recieved my first computer, sparking a career that
-                            has since expanded into competitive programming with
-                            C++, modern web development using TypeScript, game
-                            development in Java, and cloud infrastructure.
-                        </p>
-                        <p className="indent-4">
-                            Currently, I'm honing my skills in Cloud Native
-                            technologies, working extensively with Kubernetes
-                            and Go, developing complex projects at Ericsson. With a
-                            focus on reliability and performance, I'm excited to
-                            apply my evolving expertise in cloud orchestration,
-                            backend development, and scalable architecture to
-                            make a meaningful impact on future projects.
+                            I'm a software engineer based in Helsinki who loves
+                            building reliable and scalable software. I enjoy
+                            everything from designing systems to solving
+                            real-world problems with code. Currently, I'm
+                            working at Ericsson on cloud-native with Kubernetes
+                            and Go. When not coding, I explore new ideas and
+                            ways to grow my skills.
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
@@ -88,6 +79,27 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div>
+                    <MainHeading text="I Like" />
+                    <div className="py-4">
+                        <p className="indent-4">
+                            <Link
+                                href="https://dotfiles.ender.fi"
+                                target="_blank"
+                            >
+                                Vim
+                            </Link>
+                            , Linux,{" "}
+                            <Link
+                                href="https://dotfiles.ender.fi"
+                                target="_blank"
+                            >
+                                Tiling Window Managers
+                            </Link>
+                            , Go, Distributed Systems, DevOps
+                        </p>
+                    </div>
+                </div>
+                <div>
                     <MainHeading text="Bio" />
                     <div className="flex flex-col py-4">
                         <BioEntry year="2002">
@@ -97,12 +109,6 @@ const HomePage = () => {
                             Completed High School at the{" "}
                             <Link href="https://hrsk.fi" target="_blank">
                                 French-Finnish school of Helsinki
-                            </Link>
-                        </BioEntry>
-                        <BioEntry year="2022">
-                            Started studying Computer Science at the{" "}
-                            <Link href="https://helsinki.fi" target="_blank">
-                                University of Helsinki
                             </Link>
                         </BioEntry>
                         <BioEntry year="2022">
@@ -121,6 +127,18 @@ const HomePage = () => {
                             Software Engineer Trainee at{" "}
                             <Link href="https://ericsson.com" target="_blank">
                                 Ericsson
+                            </Link>
+                        </BioEntry>
+                        <BioEntry year="2025">
+                            BSc in Computer Science at the{" "}
+                            <Link href="https://helsinki.fi" target="_blank">
+                                University of Helsinki
+                            </Link>
+                        </BioEntry>
+                        <BioEntry year="2027">
+                            MSc in Computer Science at the{" "}
+                            <Link href="https://helsinki.fi" target="_blank">
+                                University of Helsinki
                             </Link>
                         </BioEntry>
                     </div>
