@@ -86,16 +86,9 @@ const HomePage = () => {
                                 href="https://dotfiles.ender.fi"
                                 target="_blank"
                             >
-                                Vim
+                                Vim , Nix, Linux, Tiling Window Managers,{" "}
                             </Link>
-                            , Linux,{" "}
-                            <Link
-                                href="https://dotfiles.ender.fi"
-                                target="_blank"
-                            >
-                                Tiling Window Managers
-                            </Link>
-                            , Go, Distributed Systems, DevOps
+                            Go, Distributed Systems, DevOps
                         </p>
                     </div>
                 </div>
