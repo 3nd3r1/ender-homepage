@@ -58,13 +58,12 @@ const HomePage = () => {
                     <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I'm a software engineer based in Helsinki who loves
-                            building reliable and scalable software. I enjoy
-                            everything from designing systems to solving
-                            real-world problems with code. Currently, I'm
-                            working at Ericsson on cloud-native with Kubernetes
-                            and Go. When not coding, I explore new ideas and
-                            ways to grow my skills.
+                            I'm a software engineer at Ericsson building distributed 
+                            systems infrastructure with Kubernetes, Go, PostgreSQL, and 
+                            TimescaleDB. I work on database pipeline optimization, 
+                            Kubernetes orchestration, and making distributed systems more 
+                            reliable at scale. Currently exploring ML infrastructure, 
+                            GPU scheduling, and distributed training systems.
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
@@ -82,13 +81,13 @@ const HomePage = () => {
                     <MainHeading text="I Like" />
                     <div className="py-4">
                         <p className="indent-4">
+                            Distributed Systems, Kubernetes, Go, PostgreSQL, 
                             <Link
                                 href="https://dotfiles.ender.fi"
                                 target="_blank"
                             >
-                                Vim , Nix, Linux, Tiling Window Managers,{" "}
+                                {" "}Linux, Nix, Vim, Tiling Window Managers
                             </Link>
-                            Go, Distributed Systems, DevOps
                         </p>
                     </div>
                 </div>
