@@ -81,7 +81,7 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
             />
             <div>
                 {workDetails.workInfos.map((info: WorkInfo) => (
-                    <InfoEntry info={info} />
+                    <InfoEntry key={info.id} info={info} />
                 ))}
             </div>
             <div>

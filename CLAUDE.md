@@ -10,10 +10,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Build the application for production (static export)
 - `npm run start` - Build and start production server
 
+### Code Quality
+
+- `npm run lint` - Run TypeScript type checking, ESLint, and Prettier format checking
+- `npm run lint:fix` - Run TypeScript type checking and ESLint with automatic fixes
+- `npm run format` - Format code with Prettier
+
+### Code Quality Requirements
+
+**IMPORTANT**: Before completing any task, ALWAYS run these commands in order:
+
+1. `npm run lint` - Check for TypeScript and linting issues
+2. `npm run format` - Format the code
+3. `npm run build` - Ensure the build succeeds
+
+All type errors and linting errors must be resolved before considering a task complete.
+
 ### Notes
 
 - This project uses static export mode (`output: "export"` in next.config.mjs)
-- No test scripts are configured in package.json
+- ESLint is configured with TypeScript support and Next.js best practices
+- Prettier is configured for consistent code formatting
+- All code must pass linting, formatting, and type checking before completion
 
 ## Architecture
 
