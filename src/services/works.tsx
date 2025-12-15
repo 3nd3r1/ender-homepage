@@ -43,11 +43,6 @@ export const getAllWorksWithDetails = cache(async () => {
     `);
 
     const response = await request(graphqlAPI, query);
-    console.log(
-        "GraphQL response:",
-        response.worksConnection.edges.length,
-        "works found",
-    );
     return response.worksConnection.edges.map((edge: any) => edge.node);
 });
 
