@@ -5,6 +5,14 @@ import { parse } from "graphql";
 import { TypedDocumentNode } from "@graphql-typed-document-node/core";
 import { Work, WorkDetails } from "@/lib/definitions";
 
+type GraphQLResponse = {
+    worksConnection: {
+        edges: Array<{
+            node: WorkDetails;
+        }>;
+    };
+};
+
 const graphqlAPI: string = process.env.GRAPHCMS_ENDPOINT!;
 
 if (!graphqlAPI) {
@@ -42,8 +50,8 @@ export const getAllWorksWithDetails = cache(async () => {
         }
     `);
 
-    const response = await request(graphqlAPI, query);
-    return response.worksConnection.edges.map((edge: any) => edge.node);
+    const response = (await request(graphqlAPI, query)) as GraphQLResponse;
+    return response.worksConnection.edges.map((edge) => edge.node);
 });
 
 export const getWorks = cache(async (): Promise<Work[]> => {
@@ -60,7 +68,7 @@ export const getWorks = cache(async (): Promise<Work[]> => {
 export const getWorkDetails = cache(
     async (slug: string): Promise<WorkDetails> => {
         const allWorks = await getAllWorksWithDetails();
-        const work = allWorks.find((work: any) => work.slug === slug);
+        const work = allWorks.find((work) => work.slug === slug);
         if (!work) {
             throw new Error(`Work with slug "${slug}" not found`);
         }
