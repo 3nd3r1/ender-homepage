@@ -11,20 +11,29 @@ if (!graphqlAPI) {
     throw new Error("Missing environment variable GRAPHCMS_ENDPOINT");
 }
 
-export const getWorks = cache(async (): Promise<Work[]> => {
-    const query: TypedDocumentNode<
-        { worksConnection: { edges: { node: Work }[] } },
-        Record<any, never>
-    > = parse(gql`
-        query Assets {
-            worksConnection {
+// Single query to fetch all works with full details
+export const getAllWorksWithDetails = cache(async () => {
+    const query = parse(gql`
+        query AllWorksWithDetails {
+            worksConnection(first: 100) {
                 edges {
                     node {
                         id
                         title
                         description
                         slug
+                        createdYear
+                        content {
+                            html
+                        }
                         image {
+                            url
+                        }
+                        workInfos {
+                            id
+                            title
+                            text
+                            isLink
                             url
                         }
                     }
@@ -34,41 +43,32 @@ export const getWorks = cache(async (): Promise<Work[]> => {
     `);
 
     const response = await request(graphqlAPI, query);
+    console.log(
+        "GraphQL response:",
+        response.worksConnection.edges.length,
+        "works found",
+    );
+    return response.worksConnection.edges.map((edge: any) => edge.node);
+});
 
-    return response.worksConnection.edges.map((edge: any) => edge.node as Work);
+export const getWorks = cache(async (): Promise<Work[]> => {
+    const allWorks = await getAllWorksWithDetails();
+    return allWorks.map((work) => ({
+        id: work.id,
+        title: work.title,
+        description: work.description,
+        slug: work.slug,
+        image: work.image,
+    }));
 });
 
 export const getWorkDetails = cache(
     async (slug: string): Promise<WorkDetails> => {
-        const query: TypedDocumentNode<
-            { work: WorkDetails },
-            { slug: string }
-        > = parse(gql`
-            query GetProjectDetails($slug: String!) {
-                work(where: { slug: $slug }) {
-                    createdYear
-                    description
-                    content {
-                        html
-                    }
-                    id
-                    slug
-                    title
-                    image {
-                        url
-                    }
-                    workInfos {
-                        id
-                        title
-                        text
-                        isLink
-                        url
-                    }
-                }
-            }
-        `);
-
-        const response = await request(graphqlAPI, query, { slug });
-        return response.work;
+        const allWorks = await getAllWorksWithDetails();
+        const work = allWorks.find((work: any) => work.slug === slug);
+        if (!work) {
+            throw new Error(`Work with slug "${slug}" not found`);
+        }
+        return work as WorkDetails;
     },
 );

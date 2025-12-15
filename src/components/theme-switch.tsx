@@ -16,8 +16,7 @@ const ThemeSwitch = () => {
 
     if (!mounted) {
         return (
-            <div className="p-[17px] dark:bg-orange-500 bg-purple-500 dark:text-black text-lg dark:hover:bg-orange-600 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out">
-            </div>
+            <div className="p-[17px] dark:bg-orange-500 bg-purple-500 dark:text-black text-lg dark:hover:bg-orange-600 hover:bg-purple-400 text-white transition-colors duration-200 ease-in-out"></div>
         );
     }
 
