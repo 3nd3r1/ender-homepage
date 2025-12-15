@@ -58,7 +58,7 @@ const HomePage = () => {
                     <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I'm a software engineer at Ericsson building
+                            I&apos;m a software engineer at Ericsson building
                             distributed systems infrastructure with Kubernetes,
                             Go, PostgreSQL, and TimescaleDB. I work on database
                             pipeline optimization, Kubernetes orchestration, and
