@@ -35,7 +35,7 @@ export async function generateStaticParams() {
 const BlogPage = async ({ params }: { params: { slug: string } }) => {
     const blogDetails = await getBlog(params.slug);
     const createdDate = new Date(blogDetails.created).toLocaleDateString();
-    
+
     return (
         <div className="page-content flex flex-col gap-4">
             <div className="flex flex-row">
