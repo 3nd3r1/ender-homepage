@@ -90,7 +90,7 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                     height={600}
                     src={workDetails.image.url}
                     alt={workDetails.title}
-                    className="rounded-lg shadow-lg"
+                    className="rounded-none shadow-lg"
                     priority
                 />
             </div>

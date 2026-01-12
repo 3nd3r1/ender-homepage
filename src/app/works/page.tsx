@@ -18,7 +18,7 @@ const WorkEntry = ({ work }: { work: Work }) => (
                 alt={work.title}
                 width={1000}
                 height={1000}
-                className="rounded-xl h-32 w-auto object-cover"
+                className="rounded-none h-32 w-auto object-cover"
             />
             <h3 className="w-100 text-center text-xl mt-2">{work.title}</h3>
             <p className="text-sm text-center">{work.description}</p>
