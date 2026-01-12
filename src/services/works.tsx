@@ -2,7 +2,6 @@ import { cache } from "react";
 import { request, gql } from "graphql-request";
 import { parse } from "graphql";
 
-import { TypedDocumentNode } from "@graphql-typed-document-node/core";
 import { Work, WorkDetails } from "@/lib/definitions";
 
 type GraphQLResponse = {

@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,14 +16,28 @@ const MainHeading = ({ text }: { text: string }) => (
         {text}
     </h1>
 );
-const BioEntry = ({ children, year }: any) => (
+const BioEntry = ({
+    children,
+    year,
+}: {
+    children: React.ReactNode;
+    year: string;
+}) => (
     <div className="pl-[3.4em] indent-[-3.4em]">
         <span className="mr-4 font-bold">{year}</span>
         {children}
     </div>
 );
 
-const SocialEntry = ({ text, link, icon }: any) => (
+const SocialEntry = ({
+    text,
+    link,
+    icon,
+}: {
+    text: string;
+    link: string;
+    icon: React.ReactNode;
+}) => (
     <li className="flex flex-row items-center text-xl gap-2 align-middle dark:text-purple-600 text-purple-700">
         {icon}
         <Link className="mb-1" target="_blank" href={link}>

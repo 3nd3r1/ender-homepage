@@ -1,4 +1,10 @@
-const SkullIcon = (props: any) => {
+interface SkullIconProps {
+    className?: string;
+    width?: string | number;
+    height?: string | number;
+}
+
+const SkullIcon = (props: SkullIconProps) => {
     return (
         <svg
             className={props.className}
