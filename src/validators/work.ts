@@ -9,7 +9,7 @@ export const WorkInfoSchema = z.object({
     title: z.string(),
     text: z.string(),
     isLink: z.boolean(),
-    url: z.string(),
+    url: z.url().optional().nullable(),
 });
 
 export const WorkContentSchema = z.object({
@@ -17,7 +17,7 @@ export const WorkContentSchema = z.object({
 });
 
 export const WorkSchema = z.object({
-    createdYear: z.string(),
+    createdYear: z.number(),
     description: z.string(),
     content: WorkContentSchema,
     id: z.string(),
