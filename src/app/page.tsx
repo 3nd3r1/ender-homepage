@@ -144,6 +144,12 @@ const HomePage = () => {
                                 University of Helsinki
                             </Link>
                         </BioEntry>
+                        <BioEntry year="2026">
+                            Software Engineer Internship at{" "}
+                            <Link href="https://palantir.com" target="_blank">
+                                Palantir
+                            </Link>
+                        </BioEntry>
                         <BioEntry year="2027">
                             MSc in Computer Science at the{" "}
                             <Link href="https://helsinki.fi" target="_blank">
