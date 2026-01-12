@@ -49,16 +49,16 @@ export const getWorks = cache(async (): Promise<Work[]> => {
     `);
 
     const response = (await request(graphqlAPI, query)) as GraphQLResponse;
-    return response.worksConnection.edges.map((edge) => WorkSchema.parse(edge.node));
+    return response.worksConnection.edges.map((edge) =>
+        WorkSchema.parse(edge.node),
+    );
 });
 
-export const getWork = cache(
-    async (slug: string): Promise<Work> => {
-        const allWorks = await getWorks();
-        const work = allWorks.find((work) => work.slug === slug);
-        if (!work) {
-            throw new Error(`Work with slug "${slug}" not found`);
-        }
-        return WorkSchema.parse(work);
-    },
-);
+export const getWork = cache(async (slug: string): Promise<Work> => {
+    const allWorks = await getWorks();
+    const work = allWorks.find((work) => work.slug === slug);
+    if (!work) {
+        throw new Error(`Work with slug "${slug}" not found`);
+    }
+    return WorkSchema.parse(work);
+});

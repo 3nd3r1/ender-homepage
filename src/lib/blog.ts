@@ -42,16 +42,16 @@ export const getBlogs = cache(async (): Promise<Blog[]> => {
     `);
 
     const response = (await request(graphqlAPI, query)) as GraphQLResponse;
-    return response.blogsConnection.edges.map((edge) => BlogSchema.parse(edge.node));
+    return response.blogsConnection.edges.map((edge) =>
+        BlogSchema.parse(edge.node),
+    );
 });
 
-export const getBlog = cache(
-    async (slug: string): Promise<Blog> => {
-        const allBlogs = await getBlogs();
-        const blog = allBlogs.find((blog) => blog.slug === slug);
-        if (!blog) {
-            throw new Error(`Blog with slug "${slug}" not found`);
-        }
-        return BlogSchema.parse(blog);
-    },
-);
+export const getBlog = cache(async (slug: string): Promise<Blog> => {
+    const allBlogs = await getBlogs();
+    const blog = allBlogs.find((blog) => blog.slug === slug);
+    if (!blog) {
+        throw new Error(`Blog with slug "${slug}" not found`);
+    }
+    return BlogSchema.parse(blog);
+});
