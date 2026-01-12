@@ -12,18 +12,18 @@ export async function generateMetadata({
 }: {
     params: { slug: string };
 }): Promise<Metadata> {
-    const workDetails = await getWork(params.slug);
+    const work = await getWork(params.slug);
 
     return {
-        title: workDetails.title + " | Viljami Ranta",
-        description: workDetails.description,
+        title: work.title + " | Viljami Ranta",
+        description: work.description,
         openGraph: {
-            images: [workDetails.image.url],
+            images: [work.image.url],
         },
         twitter: {
-            title: workDetails.title + " | Viljami Ranta",
-            description: workDetails.description,
-            images: [workDetails.image.url],
+            title: work.title + " | Viljami Ranta",
+            description: work.description,
+            images: [work.image.url],
         },
     };
 }
@@ -60,7 +60,7 @@ const InfoEntry = ({ info }: { info: WorkInfo }) => (
 );
 
 const WorkPage = async ({ params }: { params: { slug: string } }) => {
-    const workDetails = await getWork(params.slug);
+    const work = await getWork(params.slug);
     return (
         <div className="page-content flex flex-col gap-4">
             <div className="flex flex-row">
@@ -69,18 +69,18 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                 </Link>
                 <span className="px-2 text-lg">/</span>
                 <h2 className="text-xl">
-                    {workDetails.title}
+                    {work.title}
                     <span className="text-sm ml-2 dark:bg-neutral-700 bg-neutral-400 px-1">
-                        {workDetails.createdYear}
+                        {work.createdYear}
                     </span>
                 </h2>
             </div>
             <div
                 className="prose dark:prose-invert"
-                dangerouslySetInnerHTML={{ __html: workDetails.content.html }}
+                dangerouslySetInnerHTML={{ __html: work.content.html }}
             />
             <div>
-                {workDetails.workInfos.map((info: WorkInfo) => (
+                {work.workInfos.map((info: WorkInfo) => (
                     <InfoEntry key={info.id} info={info} />
                 ))}
             </div>
@@ -88,8 +88,8 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                 <Image
                     width={600}
                     height={600}
-                    src={workDetails.image.url}
-                    alt={workDetails.title}
+                    src={work.image.url}
+                    alt={work.title}
                     className="rounded-none shadow-lg"
                     priority
                 />
