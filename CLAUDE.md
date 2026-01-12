@@ -35,7 +35,7 @@ All type errors and linting errors must be resolved before considering a task co
 
 ## Architecture
 
-This is Viljami Ranta's personal homepage built with Next.js 14, featuring a portfolio section with works fetched from Hygraph (GraphCMS).
+This is Viljami Ranta's personal homepage built with Next.js 14, featuring a portfolio section with works and a blog section, both fetched from Hygraph (GraphCMS).
 
 ### Tech Stack
 
@@ -44,38 +44,60 @@ This is Viljami Ranta's personal homepage built with Next.js 14, featuring a por
 - **Content**: GraphQL + Hygraph CMS
 - **Animations**: Framer Motion
 - **Theme**: next-themes for dark/light mode
-- **TypeScript**: Full TypeScript support
+- **TypeScript**: Full TypeScript support with Zod validation
+- **Content Management**: Hygraph (formerly GraphCMS) for both blog posts and portfolio works
 
 ### Project Structure
 
 - `src/app/` - Next.js App Router pages and layouts
     - `layout.tsx` - Root layout with theme provider and navigation
     - `page.tsx` - Homepage with bio, socials, and personal info
-    - `works/` - Portfolio section pages
+    - `blog/` - Blog section pages and dynamic routes
+    - `works/` - Portfolio section pages and dynamic routes
+    - `sitemap.ts` - Sitemap generation
 - `src/components/` - Reusable UI components
-    - Theme switching and providers
-    - Navigation and transitions
-    - Icons
-- `src/lib/` - Type definitions and utilities
-- `src/services/` - External API interactions (GraphQL queries to Hygraph)
+    - `navbar.tsx` - Navigation with blog and works links
+    - `theme-provider.tsx` & `theme-switch.tsx` - Theme management
+    - `transition.tsx` - Page transitions with Framer Motion
+    - `logo.tsx` - Site logo component
+    - `icons/` - Custom icon components
+- `src/lib/` - Data fetching utilities
+    - `blog.ts` - GraphQL queries and caching for blog posts
+    - `work.ts` - GraphQL queries and caching for portfolio works
+- `src/validators/` - Zod schema validation
+    - `blog.ts` - Type-safe blog data validation
+    - `work.ts` - Type-safe work data validation
 
 ### Key Features
 
 - **Static Export**: Configured for static deployment
 - **Theme System**: Dark/light mode with system preference detection
+- **Blog System**: Full blog with posts fetched from Hygraph CMS
 - **Portfolio Integration**: Works/projects fetched from Hygraph CMS via GraphQL
+- **Type Safety**: Comprehensive TypeScript with Zod runtime validation
 - **Responsive Design**: Mobile-first with TailwindCSS
 - **SEO Optimized**: Comprehensive metadata and OpenGraph tags
 
 ### Data Flow
 
-- Works/portfolio content is fetched from Hygraph CMS using GraphQL
+- Both blog posts and portfolio works are fetched from Hygraph CMS using GraphQL
 - Environment variable `GRAPHCMS_ENDPOINT` required for CMS connection
-- Uses React cache for GraphQL queries
+- Uses React cache for GraphQL queries to optimize performance
 - Type-safe GraphQL with `@graphql-typed-document-node/core`
+- Runtime validation with Zod schemas ensures data integrity
+
+### Dependencies
+
+- **Core**: React 18, Next.js 14, TypeScript 5
+- **Styling**: TailwindCSS 3.4, Sass, @tailwindcss/typography
+- **GraphQL**: graphql-request, @graphql-typed-document-node/core
+- **Validation**: Zod 4.3
+- **UI/UX**: Framer Motion, next-themes, react-icons
+- **Development**: ESLint 9, Prettier, TypeScript ESLint
 
 ### Configuration Files
 
 - `next.config.mjs` - Static export, image optimization disabled, Hygraph remote patterns
 - `tailwind.config.ts` - TailwindCSS configuration
 - `postcss.config.mjs` - PostCSS for TailwindCSS
+- `eslint.config.mjs` - ESLint configuration with TypeScript and Next.js support
