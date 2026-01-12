@@ -7,13 +7,6 @@ import ThemeSwitch from "./theme-switch";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const TriangleLeft = () => (
-    <div className="w-0 h-0 pr-1 transition-colors duration-300 border-l-white dark:border-l-black border-t-[11.5px] border-t-transparent border-b-[11.5px] border-b-transparent border-l-[11.5px]"></div>
-);
-const TriangleRight = () => (
-    <div className="w-0 h-0 pl-1 transition-colors duration-300 border-l-purple-500 dark:border-l-purple-700 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-l-[12px]"></div>
-);
-
 const NavLink = ({
     text,
     url,
@@ -27,15 +20,19 @@ const NavLink = ({
     return (
         <Link key={text} href={url} scroll={false}>
             <div
-                className={`flex flex-row items-center align-middle font-bold ${active ? "px-0" : "px-4"}`}
+                className={`flex flex-row items-center align-middle font-bold transition-all duration-300 ease-in-out ${active ? "px-0" : "px-4"}`}
             >
                 <div
-                    className={`flex flex-row transition-[background-color] duration-300 items-center ${active ? "bg-purple-500 dark:bg-purple-700" : ""} gap-0 m-0 p-0`}
+                    className={`flex flex-row transition-all duration-300 ease-in-out items-center ${active ? "bg-purple-500 dark:bg-purple-700" : "bg-transparent"} gap-0 m-0 p-0`}
                 >
-                    {active ? <TriangleLeft /> : ""}
-                    {text}
+                    <div
+                        className={`w-0 h-0 pr-1 border-l-white dark:border-l-black border-t-[11.5px] border-t-transparent border-b-[11.5px] border-b-transparent border-l-[11.5px] ${active ? "opacity-100 transition-none" : "opacity-0 transition-opacity duration-300 delay-300 ease-in-out"}`}
+                    />
+                    <span>{text}</span>
                 </div>
-                {active ? <TriangleRight /> : ""}
+                <div
+                    className={`w-0 h-0 pl-1 transition-all duration-300 ease-in-out border-l-purple-500 dark:border-l-purple-700 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-l-[12px] ${active ? "opacity-100" : "opacity-0"}`}
+                />
             </div>
         </Link>
     );
