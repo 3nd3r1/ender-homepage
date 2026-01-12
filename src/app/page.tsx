@@ -83,7 +83,7 @@ const HomePage = () => {
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
-                                className="!text-black !dark:text-white bg-purple-500 dark:bg-purple-800 hover:bg-purple-400 dark:hover:bg-purple-900 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
+                                className="!text-black !dark:text-white bg-purple-500 dark:bg-purple-800 hover:bg-purple-400 dark:hover:bg-purple-900 rounded-none py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
                                 href="/works"
                                 scroll={false}
                             >
