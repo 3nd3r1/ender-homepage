@@ -19,9 +19,7 @@ const NavLink = ({
     const active = "/" + pathname.split("/")[1] === url;
     return (
         <Link key={text} href={url} scroll={false}>
-            <div
-                className={`flex flex-row items-center align-middle font-bold transition-all duration-300 ease-in-out ${active ? "px-0" : "px-4"}`}
-            >
+            <div className="relative flex flex-row items-center align-middle font-bold">
                 <div
                     className={`flex flex-row transition-all duration-300 ease-in-out items-center ${active ? "bg-purple-500 dark:bg-purple-700" : "bg-transparent"} gap-0 m-0 p-0`}
                 >
