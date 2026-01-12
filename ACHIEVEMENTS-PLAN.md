@@ -12,35 +12,38 @@ A Discord-style achievements system for the portfolio that tracks user interacti
 Simple milestone-based achievements that track user interactions and engagement with the portfolio.
 
 **Achievement Structure:**
+
 ```typescript
 interface Achievement {
-  id: string;
-  title: string;
-  description: string;
-  icon: string; // Icon component name or emoji
-  unlockCondition: AchievementCondition;
-  isUnlocked: boolean;
-  unlockedAt?: Date;
-  progress?: number; // For progressive achievements
-  maxProgress?: number;
+    id: string;
+    title: string;
+    description: string;
+    icon: string; // Icon component name or emoji
+    unlockCondition: AchievementCondition;
+    isUnlocked: boolean;
+    unlockedAt?: Date;
+    progress?: number; // For progressive achievements
+    maxProgress?: number;
 }
 
 interface AchievementCondition {
-  type: string;
-  target?: number;
-  event?: string;
-  metadata?: Record<string, any>;
+    type: string;
+    target?: number;
+    event?: string;
+    metadata?: Record<string, any>;
 }
 ```
 
 ### 2. Achievement Tracking System
 
 **Event-Driven Architecture:**
+
 - Custom hook `useAchievements()` for tracking events
 - Achievement manager service for checking conditions
 - Event dispatcher for decoupled achievement triggering
 
 **Components:**
+
 ```
 src/lib/achievements/
 ├── types.ts              # TypeScript definitions
@@ -85,26 +88,28 @@ src/hooks/
 ### 3. Storage Strategy
 
 **Local Storage Structure:**
+
 ```typescript
 interface AchievementStore {
-  achievements: Record<string, Achievement>;
-  events: AchievementEvent[];
-  stats: {
-    totalVisits: number;
-    totalTimeSpent: number;
-    firstVisit: Date;
-    lastVisit: Date;
-  };
-  settings: {
-    showToasts: boolean;
-    soundEnabled: boolean;
-  };
+    achievements: Record<string, Achievement>;
+    events: AchievementEvent[];
+    stats: {
+        totalVisits: number;
+        totalTimeSpent: number;
+        firstVisit: Date;
+        lastVisit: Date;
+    };
+    settings: {
+        showToasts: boolean;
+        soundEnabled: boolean;
+    };
 }
 ```
 
 ### 4. Event Tracking Integration Points
 
 **Existing Components to Instrument:**
+
 - `ThemeToggle` component - theme switching events
 - `Navigation` component - page navigation events
 - `WorkCard` components - work viewing events
@@ -112,31 +117,35 @@ interface AchievementStore {
 - Blog components - reading engagement
 
 **Custom Events:**
+
 ```typescript
 // Achievement events to dispatch
-'achievement:theme-switch'
-'achievement:page-visit'
-'achievement:work-view' 
-'achievement:blog-read'
-'achievement:time-milestone'
-'achievement:interaction-count'
+"achievement:theme-switch";
+"achievement:page-visit";
+"achievement:work-view";
+"achievement:blog-read";
+"achievement:time-milestone";
+"achievement:interaction-count";
 ```
 
 ### 5. UI/UX Design
 
 **Achievement Toast Notifications:**
+
 - Non-intrusive slide-in from top-right
 - Auto-dismiss after 4 seconds
 - Achievement icon, title, and brief description
 - Click to view full achievements page
 
 **Achievements Page (`/achievements`):**
+
 - Grid layout with achievement cards
 - Search functionality
 - Progress indicators for partial achievements
 - Statistics overview (total unlocked, completion percentage)
 
 **Achievement Cards:**
+
 - Locked state: Grayed out with hint
 - Unlocked state: Full color with unlock date
 - Progress bars for incremental achievements
@@ -144,6 +153,7 @@ interface AchievementStore {
 ### 6. Performance Considerations
 
 **Optimization Strategies:**
+
 - Lazy load achievement definitions
 - Throttle event tracking to prevent spam
 - Batch local storage writes
@@ -151,6 +161,7 @@ interface AchievementStore {
 - Virtual scrolling for large achievement lists
 
 **Bundle Size:**
+
 - Tree-shakeable achievement definitions
 - Dynamic imports for achievement components
 - Minimal dependencies (leverage existing icons)
@@ -158,24 +169,28 @@ interface AchievementStore {
 ## Implementation Phases
 
 ### Phase 1: Core Infrastructure
+
 1. Set up type definitions and basic architecture
 2. Implement local storage management
 3. Create achievement manager and event system
 4. Add basic achievement definitions
 
 ### Phase 2: UI Components
+
 1. Build achievement card components
 2. Create toast notification system
 3. Implement achievements page layout
 4. Add search functionality
 
 ### Phase 3: Integration & Tracking
+
 1. Instrument existing components for event tracking
 2. Add achievement checks to user interactions
 3. Implement progressive achievement tracking
 4. Test and refine achievement conditions
 
 ### Phase 4: Polish & Enhancement
+
 1. Add animations and micro-interactions
 2. Implement achievement sharing (optional)
 3. Add sound effects (optional)
@@ -184,6 +199,7 @@ interface AchievementStore {
 ## Development Guidelines
 
 ### Code Quality Standards
+
 - Follow existing TypeScript patterns
 - Maintain component modularity
 - Write comprehensive tests for achievement logic
@@ -191,6 +207,7 @@ interface AchievementStore {
 - Use existing design system (Tailwind classes)
 
 ### Integration Requirements
+
 - Minimal impact on existing codebase
 - Opt-in functionality (users can disable)
 - No external dependencies for core functionality
@@ -198,6 +215,7 @@ interface AchievementStore {
 - Graceful degradation if localStorage unavailable
 
 ### Testing Strategy
+
 - Unit tests for achievement manager logic
 - Integration tests for event tracking
 - E2E tests for critical achievement flows
@@ -207,6 +225,7 @@ interface AchievementStore {
 ## Future Enhancements
 
 ### Potential Extensions
+
 - Achievement sharing via URL
 - Seasonal/limited-time achievements
 - Achievement statistics and analytics
@@ -215,6 +234,7 @@ interface AchievementStore {
 - Social features (compare with friends)
 
 ### Data Migration Strategy
+
 - Version local storage schema
 - Provide migration utilities for schema changes
 - Backup/restore functionality
