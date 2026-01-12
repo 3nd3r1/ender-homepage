@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,14 +16,28 @@ const MainHeading = ({ text }: { text: string }) => (
         {text}
     </h1>
 );
-const BioEntry = ({ children, year }: any) => (
+const BioEntry = ({
+    children,
+    year,
+}: {
+    children: React.ReactNode;
+    year: string;
+}) => (
     <div className="pl-[3.4em] indent-[-3.4em]">
         <span className="mr-4 font-bold">{year}</span>
         {children}
     </div>
 );
 
-const SocialEntry = ({ text, link, icon }: any) => (
+const SocialEntry = ({
+    text,
+    link,
+    icon,
+}: {
+    text: string;
+    link: string;
+    icon: React.ReactNode;
+}) => (
     <li className="flex flex-row items-center text-xl gap-2 align-middle dark:text-purple-600 text-purple-700">
         {icon}
         <Link className="mb-1" target="_blank" href={link}>
@@ -68,7 +83,7 @@ const HomePage = () => {
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
-                                className="!text-black !dark:text-white bg-purple-500 dark:bg-purple-800 hover:bg-purple-400 dark:hover:bg-purple-900 rounded-md py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
+                                className="!text-black !dark:text-white bg-purple-500 dark:bg-purple-800 hover:bg-purple-400 dark:hover:bg-purple-900 rounded-none py-2 px-4 text-lg font-bold flex flex-row items-center gap-2 transition-colors duration-200 ease-in-out"
                                 href="/works"
                                 scroll={false}
                             >
@@ -127,6 +142,12 @@ const HomePage = () => {
                             BSc in Computer Science at the{" "}
                             <Link href="https://helsinki.fi" target="_blank">
                                 University of Helsinki
+                            </Link>
+                        </BioEntry>
+                        <BioEntry year="2026">
+                            Software Engineer Internship at{" "}
+                            <Link href="https://palantir.com" target="_blank">
+                                Palantir
                             </Link>
                         </BioEntry>
                         <BioEntry year="2027">

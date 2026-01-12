@@ -2,13 +2,12 @@ import { cache } from "react";
 import { request, gql } from "graphql-request";
 import { parse } from "graphql";
 
-import { TypedDocumentNode } from "@graphql-typed-document-node/core";
-import { Work, WorkDetails } from "@/lib/definitions";
+import { Work, WorkSchema } from "@/validators/work";
 
 type GraphQLResponse = {
     worksConnection: {
         edges: Array<{
-            node: WorkDetails;
+            node: Work;
         }>;
     };
 };
@@ -19,8 +18,7 @@ if (!graphqlAPI) {
     throw new Error("Missing environment variable GRAPHCMS_ENDPOINT");
 }
 
-// Single query to fetch all works with full details
-export const getAllWorksWithDetails = cache(async () => {
+export const getWorks = cache(async (): Promise<Work[]> => {
     const query = parse(gql`
         query AllWorksWithDetails {
             worksConnection(first: 100) {
@@ -51,27 +49,16 @@ export const getAllWorksWithDetails = cache(async () => {
     `);
 
     const response = (await request(graphqlAPI, query)) as GraphQLResponse;
-    return response.worksConnection.edges.map((edge) => edge.node);
+    return response.worksConnection.edges.map((edge) =>
+        WorkSchema.parse(edge.node),
+    );
 });
 
-export const getWorks = cache(async (): Promise<Work[]> => {
-    const allWorks = await getAllWorksWithDetails();
-    return allWorks.map((work) => ({
-        id: work.id,
-        title: work.title,
-        description: work.description,
-        slug: work.slug,
-        image: work.image,
-    }));
+export const getWork = cache(async (slug: string): Promise<Work> => {
+    const allWorks = await getWorks();
+    const work = allWorks.find((work) => work.slug === slug);
+    if (!work) {
+        throw new Error(`Work with slug "${slug}" not found`);
+    }
+    return WorkSchema.parse(work);
 });
-
-export const getWorkDetails = cache(
-    async (slug: string): Promise<WorkDetails> => {
-        const allWorks = await getAllWorksWithDetails();
-        const work = allWorks.find((work) => work.slug === slug);
-        if (!work) {
-            throw new Error(`Work with slug "${slug}" not found`);
-        }
-        return work as WorkDetails;
-    },
-);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useRef } from "react";
+import React, { useContext, useRef, useMemo } from "react";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { usePathname } from "next/navigation";
 
@@ -8,12 +8,25 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const FrozenRouter = ({ children }: { children: React.ReactNode }) => {
     const context = useContext(LayoutRouterContext);
-    const frozen = useRef(context).current;
-    return (
-        <LayoutRouterContext.Provider value={frozen}>
-            {children}
-        </LayoutRouterContext.Provider>
-    );
+    const frozenContext = useRef(context);
+
+    // Only update the frozen context when it's null/undefined
+    if (!frozenContext.current) {
+        frozenContext.current = context;
+    }
+
+    const memoizedProvider = useMemo(() => {
+        if (frozenContext.current === context) {
+            return children;
+        }
+        return (
+            <LayoutRouterContext.Provider value={frozenContext.current}>
+                {children}
+            </LayoutRouterContext.Provider>
+        );
+    }, [children, context]);
+
+    return memoizedProvider;
 };
 
 const variants = {

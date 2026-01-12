@@ -8,3 +8,17 @@
 .page-content a {
     @apply dark:text-purple-600 text-purple-700;
 }
+
+.prose code {
+    @apply px-1 py-0.5;
+}
+
+.prose pre {
+    @apply rounded-none p-4 my-4 overflow-x-auto;
+    @apply bg-zinc-50 dark:bg-zinc-900;
+}
+
+.prose pre code {
+    @apply bg-transparent text-gray-800 dark:text-slate-200 p-0;
+    @apply font-mono text-sm leading-relaxed;
+}
