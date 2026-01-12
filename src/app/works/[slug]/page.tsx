@@ -43,7 +43,7 @@ const InfoEntry = ({ info }: { info: WorkInfo }) => (
             </span>
         </div>
         <div>
-            {info.isLink ? (
+            {info.isLink && info.url ? (
                 <Link
                     target="_blank"
                     href={info.url}
