@@ -45,4 +45,3 @@ export function getCompletionPercentage(
     const unlocked = getUnlockedAchievements(achievements).length;
     return total > 0 ? Math.round((unlocked / total) * 100) : 0;
 }
-
