@@ -4,15 +4,15 @@ import { Metadata } from "next";
 
 import { BiLinkExternal } from "react-icons/bi";
 
-import { getWorkDetails, getWorks } from "@/services/works";
-import { Work, WorkInfo } from "@/lib/definitions";
+import { getWork, getWorks } from "@/lib/work";
+import { Work, WorkInfo } from "@/validators/work";
 
 export async function generateMetadata({
     params,
 }: {
     params: { slug: string };
 }): Promise<Metadata> {
-    const workDetails = await getWorkDetails(params.slug);
+    const workDetails = await getWork(params.slug);
 
     return {
         title: workDetails.title + " | Viljami Ranta",
@@ -60,7 +60,7 @@ const InfoEntry = ({ info }: { info: WorkInfo }) => (
 );
 
 const WorkPage = async ({ params }: { params: { slug: string } }) => {
-    const workDetails = await getWorkDetails(params.slug);
+    const workDetails = await getWork(params.slug);
     return (
         <div className="page-content flex flex-col gap-4">
             <div className="flex flex-row">

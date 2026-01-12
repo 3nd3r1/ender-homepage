@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 
-import { Work } from "@/lib/definitions";
+import { Work } from "@/validators/work";
 
-import { getWorks } from "@/services/works";
+import { getWorks } from "@/lib/work";
 
 type SitemapEntry = {
     url: string;

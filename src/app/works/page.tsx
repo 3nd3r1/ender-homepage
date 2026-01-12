@@ -3,8 +3,8 @@ import Image from "next/image";
 import { Metadata } from "next";
 import Link from "next/link";
 
-import { getWorks } from "@/services/works";
-import { Work } from "@/lib/definitions";
+import { getWorks } from "@/lib/work";
+import { Work } from "@/validators/work";
 
 export const metadata: Metadata = {
     title: "Works | Viljami Ranta",
