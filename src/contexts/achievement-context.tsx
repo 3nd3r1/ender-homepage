@@ -132,7 +132,10 @@ export function AchievementProvider({ children }: { children: ReactNode }) {
 
     // Expose for console debugging in development only
     useEffect(() => {
-        if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+        if (
+            typeof window !== "undefined" &&
+            process.env.NODE_ENV === "development"
+        ) {
             (window as unknown as Record<string, unknown>).achievements = {
                 unlock: unlockAchievement,
                 get: getAchievement,
