@@ -29,6 +29,7 @@ export const getWorks = cache(async (): Promise<Work[]> => {
                         description
                         slug
                         createdYear
+                        featured
                         content {
                             html
                         }
@@ -52,6 +53,11 @@ export const getWorks = cache(async (): Promise<Work[]> => {
     return response.worksConnection.edges.map((edge) =>
         WorkSchema.parse(edge.node),
     );
+});
+
+export const getFeaturedWorks = cache(async (): Promise<Work[]> => {
+    const allWorks = await getWorks();
+    return allWorks.filter((work) => work.featured === true);
 });
 
 export const getWork = cache(async (slug: string): Promise<Work> => {

@@ -25,6 +25,12 @@ export const WorkSchema = z.object({
     title: z.string(),
     image: WorkImageSchema,
     workInfos: z.array(WorkInfoSchema),
+    featured: z
+        .boolean()
+        .nullable()
+        .optional()
+        .default(false)
+        .transform((val) => val ?? false),
 });
 
 // TypeScript types (inferred from schemas)

@@ -78,11 +78,7 @@ const Navbar = () => {
                             text="Works"
                             url="/works"
                         />
-                        <NavLink
-                            pathname={pathname}
-                            text="Blog"
-                            url="/blog"
-                        />
+                        <NavLink pathname={pathname} text="Blog" url="/blog" />
                     </div>
                     <div className="w-1/3 flex justify-center">
                         <ThemeSwitch />

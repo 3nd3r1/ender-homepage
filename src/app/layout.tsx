@@ -5,7 +5,7 @@ import "./globals.scss";
 
 import Navbar from "@/components/navbar";
 import Transition from "@/components/transition";
-import ThemeProvider from "@/components/theme-provider";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
     title: "Viljami Ranta | Homepage",
@@ -71,11 +71,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                >
+                <Providers>
                     <div className="min-h-screen dark:bg-black dark:text-white bg-white text-slate-900 transition-colors ease-in-out duration-300">
                         <Navbar />
                         <main className="pt-24 pb-12">
@@ -86,7 +82,7 @@ export default function RootLayout({
                             </Transition>
                         </main>
                     </div>
-                </ThemeProvider>
+                </Providers>
             </body>
         </html>
     );

@@ -73,11 +73,15 @@ const HomePage = () => {
                     <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I&apos;m a software engineer at Ericsson building
-                            distributed systems infrastructure with Kubernetes,
-                            Go, PostgreSQL, and TimescaleDB. I work on database
-                            pipeline optimization, Kubernetes orchestration, and
-                            making distributed systems more reliable at scale.
+                            I&apos;m a software engineer based in Helsinki,
+                            Finland, working at Ericsson.
+                            <br />
+                            <br />
+                            I have experience in databases, backup
+                            orchestration, and making cloud native systems more
+                            reliable at scale.
+                            <br />
+                            <br />
                             Currently exploring ML infrastructure, GPU
                             scheduling, and distributed training systems.
                         </p>
@@ -145,7 +149,7 @@ const HomePage = () => {
                             </Link>
                         </BioEntry>
                         <BioEntry year="2026">
-                            Software Engineer Internship at{" "}
+                            Software Engineer Intern at{" "}
                             <Link href="https://palantir.com" target="_blank">
                                 Palantir
                             </Link>
