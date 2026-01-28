@@ -54,7 +54,7 @@ const Transition = ({ children }: { children: React.ReactNode }) => {
                 animate="enter"
                 exit="exit"
                 variants={variants}
-                transition={{ duration: 0.4, type: "easeInOut" }}
+                transition={{ duration: 0.2, type: "easeInOut" }}
             >
                 <FrozenRouter>{children}</FrozenRouter>
             </motion.div>
