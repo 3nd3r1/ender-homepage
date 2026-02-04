@@ -22,7 +22,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 1. `npm run lint` - Check for TypeScript and linting issues
 2. `npm run format` - Format the code
-3. `npm run build` - Ensure the build succeeds
+
+Do NOT run `npm run build` or `npm run dev` - the user will run these commands themselves.
 
 All type errors and linting errors must be resolved before considering a task complete.
 
