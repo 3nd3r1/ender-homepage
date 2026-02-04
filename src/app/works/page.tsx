@@ -14,7 +14,7 @@ const WorkEntry = ({ work }: { work: Work }) => (
     <Link href={"/works/" + work.slug} scroll={false}>
         <div className="flex flex-col w-full gap-1 overflow-hidden">
             <Image
-                src={work.image ? work.image.url : "images/default-image.jpg"}
+                src={work.image ? work.image.url : "/images/default-image.jpg"}
                 alt={work.title}
                 width={720}
                 height={400}
@@ -36,8 +36,8 @@ const WorksPage = async () => {
             <div>
                 <h2 className="font-bold text-xl">Featured Works</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 py-4 justify-items-center gap-8">
-                    {featuredWorks.reverse().map((work: Work) => (
-                        <WorkEntry key={work.title} work={work} />
+                    {featuredWorks.map((work: Work) => (
+                        <WorkEntry key={work.slug} work={work} />
                     ))}
                 </div>
             </div>
@@ -45,8 +45,8 @@ const WorksPage = async () => {
             <div>
                 <h2 className="font-bold text-xl">All Works</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 py-4 justify-items-center gap-8">
-                    {archivedWorks.reverse().map((work: Work) => (
-                        <WorkEntry key={work.title} work={work} />
+                    {archivedWorks.map((work: Work) => (
+                        <WorkEntry key={work.slug} work={work} />
                     ))}
                 </div>
             </div>

@@ -14,10 +14,10 @@ const BlogEntry = ({ blog }: { blog: Blog }) => (
     <Link href={"/blog/" + blog.slug} scroll={false}>
         <div className="flex flex-col rounded-lg w-60 h-56 gap-1">
             <Image
-                src={blog.image ? blog.image.url : "images/default-image.jpg"}
+                src={blog.image ? blog.image.url : "/images/default-image.jpg"}
                 alt={blog.title}
-                width={1000}
-                height={1000}
+                width={480}
+                height={270}
                 className="rounded-none h-32 w-auto object-cover"
             />
             <h3 className="w-100 text-center text-xl mt-2">{blog.title}</h3>
@@ -33,8 +33,8 @@ const BlogPage = async () => {
         <div>
             <h1 className="font-bold text-xl">Blog</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 py-4 px-2 justify-items-center gap-24">
-                {blogs.reverse().map((blog: Blog) => (
-                    <BlogEntry key={blog.title} blog={blog} />
+                {blogs.map((blog: Blog) => (
+                    <BlogEntry key={blog.slug} blog={blog} />
                 ))}
             </div>
         </div>
