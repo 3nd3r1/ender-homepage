@@ -21,7 +21,7 @@ if (!graphqlAPI) {
 export const getWorks = cache(async (): Promise<Work[]> => {
     const query = parse(gql`
         query AllWorksWithDetails {
-            worksConnection(first: 100) {
+            worksConnection(first: 100, orderBy: createdYear_DESC) {
                 edges {
                     node {
                         id

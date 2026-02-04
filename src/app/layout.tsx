@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         "viiteri",
         "soteriareitti",
     ],
-    category: "influencer",
+    category: "technology",
     creator: "Viljami Ranta",
     metadataBase: new URL("https://viljamiranta.fi/"),
     openGraph: {

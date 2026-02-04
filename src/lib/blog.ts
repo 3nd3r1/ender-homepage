@@ -21,7 +21,7 @@ if (!graphqlAPI) {
 export const getBlogs = cache(async (): Promise<Blog[]> => {
     const query = parse(gql`
         query AllBlogsWithDetails {
-            blogsConnection {
+            blogsConnection(orderBy: created_DESC) {
                 edges {
                     node {
                         content {
