@@ -6,6 +6,7 @@ import {
     AiFillGithub,
     AiFillLinkedin,
     AiFillTwitterCircle,
+    AiOutlineMail,
 } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -165,6 +166,11 @@ const HomePage = () => {
                 <div>
                     <MainHeading text="Socials" />
                     <ul className="py-4 px-4">
+                        <SocialEntry
+                            text="ranta.viljami@gmail.com"
+                            link="mailto:ranta.viljami@gmail.com"
+                            icon={<AiOutlineMail />}
+                        />
                         <SocialEntry
                             text="github.com/3nd3r1"
                             link="https://github.com/3nd3r1"
