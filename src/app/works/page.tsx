@@ -22,6 +22,18 @@ const WorkEntry = ({ work }: { work: Work }) => (
             />
             <h3 className="w-100 text-center text-xl mt-2">{work.title}</h3>
             <p className="text-sm text-center">{work.description}</p>
+            {work.stack.length > 0 && (
+                <div className="flex flex-row gap-1 flex-wrap justify-center mt-1">
+                    {work.stack.map((tech) => (
+                        <span
+                            key={tech}
+                            className="dark:bg-neutral-700 bg-neutral-300 text-xs px-1"
+                        >
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+            )}
         </div>
     </Link>
 );
