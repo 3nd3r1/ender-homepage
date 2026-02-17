@@ -1,11 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-
 import { BiLinkExternal } from "react-icons/bi";
 
 import { getWork, getWorks } from "@/lib/work";
-import { Work, WorkInfo } from "@/validators/work";
+import { Work } from "@/validators/work";
 
 export async function generateMetadata({
     params,
@@ -35,27 +34,43 @@ export async function generateStaticParams() {
     }));
 }
 
-const InfoEntry = ({ info }: { info: WorkInfo }) => (
+const InfoEntry = ({
+    title,
+    value,
+    href,
+}: {
+    title: string;
+    value: string | string[];
+    href?: string;
+}) => (
     <div className="flex flex-row gap-2 ml-8">
         <div>
             <span className="dark:bg-purple-700 dark:text-purple-200 text-sm px-1">
-                {info.title}
+                {title}
             </span>
         </div>
-        <div>
-            {info.isLink && info.url ? (
-                <Link
-                    target="_blank"
-                    href={info.url}
-                    className="flex flex-row items-center gap-1"
-                >
-                    {info.text}
-                    <BiLinkExternal />
-                </Link>
-            ) : (
-                <p>{info.text}</p>
-            )}
-        </div>
+        {Array.isArray(value) ? (
+            <div className="flex flex-row gap-x-2 flex-wrap">
+                {value.map((tag) => (
+                    <div key={tag}>
+                        <span className="dark:bg-neutral-700 bg-neutral-300 text-sm px-1">
+                            {tag}
+                        </span>
+                    </div>
+                ))}
+            </div>
+        ) : href ? (
+            <Link
+                target="_blank"
+                href={href}
+                className="flex flex-row items-center gap-1"
+            >
+                {value.replace(/https?:\/\//, "")}
+                <BiLinkExternal />
+            </Link>
+        ) : (
+            <p>{value}</p>
+        )}
     </div>
 );
 
@@ -80,8 +95,30 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                 dangerouslySetInnerHTML={{ __html: work.content.html }}
             />
             <div>
-                {work.workInfos.map((info: WorkInfo) => (
-                    <InfoEntry key={info.id} info={info} />
+                {work.stack.length > 0 && (
+                    <InfoEntry title="Stack" value={work.stack} />
+                )}
+                {work.sourceUrl && (
+                    <InfoEntry
+                        title="Source"
+                        value={work.sourceUrl}
+                        href={work.sourceUrl}
+                    />
+                )}
+                {work.liveUrl && (
+                    <InfoEntry
+                        title="Live"
+                        value={work.liveUrl}
+                        href={work.liveUrl}
+                    />
+                )}
+                {work.workInfos.map((info) => (
+                    <InfoEntry
+                        key={info.id}
+                        title={info.title}
+                        value={info.text}
+                        href={info.isLink ? (info.url ?? undefined) : undefined}
+                    />
                 ))}
             </div>
             <div>
