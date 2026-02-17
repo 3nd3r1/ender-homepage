@@ -36,6 +36,9 @@ export const getWorks = cache(async (): Promise<Work[]> => {
                         image {
                             url
                         }
+                        stack
+                        sourceUrl
+                        liveUrl
                         workInfos {
                             id
                             title
