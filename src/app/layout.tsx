@@ -33,7 +33,7 @@ export const metadata: Metadata = {
             "Viljami's personal website - Developer and Problem-solver",
         url: "https://viljamiranta.fi/",
         siteName: "Viljami Ranta",
-        images: ["/images/me.JPG"],
+        images: ["/images/me2.jpg"],
         locale: "en_US",
         type: "website",
     },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         creator: "@enderguru",
         creatorId: "1430825859519234055",
         siteId: "1430825859519234055",
-        images: ["/images/me.JPG"],
+        images: ["/images/me2.jpg"],
     },
     icons: {
         icon: [

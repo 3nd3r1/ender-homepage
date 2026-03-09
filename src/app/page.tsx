@@ -62,7 +62,7 @@ const HomePage = () => {
                     <div className="relative w-40 h-40">
                         <span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
                             <Image
-                                src="/images/me.JPG"
+                                src="/images/me2.jpg"
                                 alt="Picture of Viljami Ranta"
                                 fill
                                 className="rounded-full object-cover"
