@@ -75,7 +75,7 @@ const HomePage = () => {
                     <div className="py-4">
                         <p className="indent-4">
                             I&apos;m a software engineer based in Helsinki,
-                            Finland, working at Ericsson.
+                            Finland.
                             <br />
                             <br />
                             I have experience in databases, backup
