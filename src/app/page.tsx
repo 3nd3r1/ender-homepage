@@ -74,8 +74,11 @@ const HomePage = () => {
                     <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I&apos;m a software engineer based in Helsinki,
-                            Finland.
+                            I&apos;m a software engineering intern at{" "}
+                            <Link href="https://palantir.com" target="_blank">
+                                Palantir
+                            </Link>{" "}
+                            based in London, UK.
                             <br />
                             <br />
                             I have experience in databases, backup
