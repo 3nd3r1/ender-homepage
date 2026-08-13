@@ -165,7 +165,7 @@ const HomePage = () => {
                             </Link>
                         </BioEntry>
                         <BioEntry year="2027">
-                            Incoming Software Engineer at{" "}
+                            Software Engineer at{" "}
                             <Link href="https://palantir.com" target="_blank">
                                 Palantir
                             </Link>
