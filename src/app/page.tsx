@@ -74,11 +74,11 @@ const HomePage = () => {
                     <MainHeading text="About Me" />
                     <div className="py-4">
                         <p className="indent-4">
-                            I&apos;m a software engineering intern at{" "}
+                            I&apos;m an incoming software engineer at{" "}
                             <Link href="https://palantir.com" target="_blank">
                                 Palantir
-                            </Link>{" "}
-                            based in London, UK.
+                            </Link>
+                            , starting June 2027, based in London, UK.
                             <br />
                             <br />
                             I have experience in databases, backup
@@ -162,6 +162,12 @@ const HomePage = () => {
                             MSc in Computer Science at the{" "}
                             <Link href="https://helsinki.fi" target="_blank">
                                 University of Helsinki
+                            </Link>
+                        </BioEntry>
+                        <BioEntry year="2027">
+                            Incoming Software Engineer at{" "}
+                            <Link href="https://palantir.com" target="_blank">
+                                Palantir
                             </Link>
                         </BioEntry>
                     </div>
