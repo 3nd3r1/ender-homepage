@@ -81,13 +81,14 @@ const HomePage = () => {
                             , starting June 2027, based in London, UK.
                             <br />
                             <br />
-                            I have experience in databases, backup
-                            orchestration, and making cloud native systems more
-                            reliable at scale.
+                            I have experience turning manual infrastructure work
+                            into self-service platforms, and building reliable
+                            cloud native systems at scale.
                             <br />
                             <br />
-                            Currently exploring ML infrastructure, GPU
-                            scheduling, and distributed training systems.
+                            Focused on infrastructure for AI: GPU scheduling,
+                            distributed training, and the platforms that make
+                            large-scale ML systems reliable.
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
