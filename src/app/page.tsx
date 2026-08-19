@@ -78,17 +78,12 @@ const HomePage = () => {
                             <Link href="https://palantir.com" target="_blank">
                                 Palantir
                             </Link>
-                            , starting June 2027, based in London, UK.
+                            , starting June 2027, based in London.
                             <br />
-                            <br />
-                            I have experience turning manual infrastructure work
-                            into self-service platforms, and building reliable
-                            cloud native systems at scale.
-                            <br />
-                            <br />
-                            Focused on infrastructure for AI: GPU scheduling,
-                            distributed training, and the platforms that make
-                            large-scale ML systems reliable.
+                            <br />I work on the infrastructure layer that AI
+                            systems run on. Scheduling and resource allocation,
+                            self-service platforms, and the data systems
+                            underneath.
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
