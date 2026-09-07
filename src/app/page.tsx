@@ -62,10 +62,10 @@ const HomePage = () => {
                     <div className="relative w-40 h-40">
                         <span className="absolute rounded-full border-white border-2 w-full h-full shadow-md">
                             <Image
-                                src="/images/me2.jpg"
+                                src="/images/me.png"
                                 alt="Picture of Viljami Ranta"
                                 fill
-                                className="rounded-full object-cover"
+                                className="rounded-full object-cover object-[50%_10%]"
                             />
                         </span>
                     </div>
