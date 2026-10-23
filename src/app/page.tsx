@@ -81,9 +81,12 @@ const HomePage = () => {
                             , starting June 2027, based in London.
                             <br />
                             <br />I work on the infrastructure layer that AI
-                            systems run on. Scheduling and resource allocation,
+                            systems run on: scheduling and resource allocation,
                             self-service platforms, and the data systems
-                            underneath.
+                            underneath. Right now I&apos;m finishing my MSc in
+                            Helsinki with a thesis on semantic operators,
+                            putting LLM calls inside database queries and making
+                            them cheap enough to actually use.
                         </p>
                         <div className="flex justify-center mt-6">
                             <Link
@@ -101,12 +104,39 @@ const HomePage = () => {
                     <MainHeading text="I Like" />
                     <div className="py-4">
                         <p className="indent-4">
-                            Distributed Systems, Kubernetes, Go, PostgreSQL,
+                            <Link
+                                href="https://arxiv.org/abs/2407.11418"
+                                target="_blank"
+                            >
+                                Semantic Operators
+                            </Link>
+                            , Distributed Systems,{" "}
+                            <Link href="/blog/strongly-typed-organization">
+                                Legible Systems
+                            </Link>
+                            ,{" "}
+                            <Link
+                                href="https://leetcode.com/3nd3r1/"
+                                target="_blank"
+                            >
+                                Leetcode
+                            </Link>
+                            , Kubernetes, Go, PostgreSQL,{" "}
+                            <Link href="https://factorio.com" target="_blank">
+                                Factorio
+                            </Link>
+                            ,{" "}
+                            <Link
+                                href="https://hermanoscoffeeroasters.com"
+                                target="_blank"
+                            >
+                                Specialty Coffee
+                            </Link>
+                            ,{" "}
                             <Link
                                 href="https://dotfiles.ender.fi"
                                 target="_blank"
                             >
-                                {" "}
                                 Linux, Nix, Vim, Tiling Window Managers
                             </Link>
                         </p>

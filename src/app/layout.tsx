@@ -9,20 +9,23 @@ import Providers from "./providers";
 
 export const metadata: Metadata = {
     title: "Viljami Ranta | Homepage",
-    description: "Viljami's personal website - Developer and Problem-solver",
+    description:
+        "Viljami Ranta, software engineer working on AI infrastructure: scheduling, self-service platforms, and data systems. Incoming at Palantir London.",
     keywords: [
         "viljami ranta",
         "viljami",
         "ranta",
-        "programmer",
         "software engineer",
-        "problem-solver",
-        "cloud",
+        "ai infrastructure",
+        "semantic operators",
+        "distributed systems",
+        "data systems",
+        "kubernetes",
         "go",
-        "typescript",
-        "programming",
-        "viiteri",
-        "soteriareitti",
+        "postgresql",
+        "palantir",
+        "helsinki",
+        "london",
     ],
     category: "technology",
     creator: "Viljami Ranta",
@@ -30,7 +33,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Viljami Ranta | Homepage",
         description:
-            "Viljami's personal website - Developer and Problem-solver",
+            "Viljami Ranta, software engineer working on AI infrastructure: scheduling, self-service platforms, and data systems. Incoming at Palantir London.",
         url: "https://viljamiranta.fi/",
         siteName: "Viljami Ranta",
         images: ["/images/me2.jpg"],
@@ -41,7 +44,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Viljami Ranta | Homepage",
         description:
-            "Viljami's personal website - Developer and Problem-solver",
+            "Viljami Ranta, software engineer working on AI infrastructure: scheduling, self-service platforms, and data systems. Incoming at Palantir London.",
         creator: "@enderguru",
         creatorId: "1430825859519234055",
         siteId: "1430825859519234055",
