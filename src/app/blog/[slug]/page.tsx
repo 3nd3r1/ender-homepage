@@ -15,12 +15,14 @@ export async function generateMetadata({
         title: blogDetails.title + " | Viljami Ranta",
         description: blogDetails.description,
         openGraph: {
-            images: [blogDetails.image.url],
+            title: blogDetails.title + " | Viljami Ranta",
+            description: blogDetails.description,
+            type: "article",
+            publishedTime: blogDetails.created,
         },
         twitter: {
             title: blogDetails.title + " | Viljami Ranta",
             description: blogDetails.description,
-            images: [blogDetails.image.url],
         },
     };
 }
