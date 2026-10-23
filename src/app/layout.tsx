@@ -31,33 +31,33 @@ export const metadata: Metadata = {
     creator: "Viljami Ranta",
     metadataBase: new URL("https://viljamiranta.fi/"),
     openGraph: {
-        title: "Viljami Ranta | Homepage",
+        title: "Viljami Ranta — Software Engineer",
         description:
             "Viljami Ranta, software engineer working on AI infrastructure: scheduling, self-service platforms, and data systems. Incoming at Palantir London.",
         url: "https://viljamiranta.fi/",
         siteName: "Viljami Ranta",
-        images: ["/images/me2.jpg"],
         locale: "en_US",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Viljami Ranta | Homepage",
+        title: "Viljami Ranta — Software Engineer",
         description:
             "Viljami Ranta, software engineer working on AI infrastructure: scheduling, self-service platforms, and data systems. Incoming at Palantir London.",
         creator: "@enderguru",
         creatorId: "1430825859519234055",
         siteId: "1430825859519234055",
-        images: ["/images/me2.jpg"],
     },
     icons: {
         icon: [
             { url: "/favicon.ico" },
-            { url: "/images/favicon-32x32.png", sizes: "32x32" },
-            { url: "/images/favicon-16x16.png", sizes: "16x16" },
+            { url: "/images/favicon/favicon-32x32.png", sizes: "32x32" },
+            { url: "/images/favicon/favicon-16x16.png", sizes: "16x16" },
         ],
         shortcut: "/favicon.ico",
-        apple: [{ url: "/images/apple-touch-icon.png", sizes: "180x180" }],
+        apple: [
+            { url: "/images/favicon/apple-touch-icon.png", sizes: "180x180" },
+        ],
     },
     manifest: "https://viljamiranta.fi/site.webmanifest",
 };
