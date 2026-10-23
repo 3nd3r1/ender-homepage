@@ -2,14 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-    AiFillGithub,
-    AiFillLinkedin,
-    AiFillTwitterCircle,
-    AiOutlineMail,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 
+import { FaXTwitter } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 
 const MainHeading = ({ text }: { text: string }) => (
@@ -213,8 +209,8 @@ const HomePage = () => {
                         />
                         <SocialEntry
                             text="@enderguru"
-                            link="https://twitter.com/enderguru"
-                            icon={<AiFillTwitterCircle />}
+                            link="https://x.com/enderguru"
+                            icon={<FaXTwitter />}
                         />
                         <SocialEntry
                             text="linkedin.com/in/viljami-ranta"
