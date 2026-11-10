@@ -12,17 +12,18 @@ export async function generateMetadata({
     params: { slug: string };
 }): Promise<Metadata> {
     const work = await getWork(params.slug);
+    const images = work.image ? [work.image.url] : undefined;
 
     return {
         title: work.title + " | Viljami Ranta",
         description: work.description,
         openGraph: {
-            images: [work.image.url],
+            images,
         },
         twitter: {
             title: work.title + " | Viljami Ranta",
             description: work.description,
-            images: [work.image.url],
+            images,
         },
     };
 }
@@ -121,16 +122,18 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                     />
                 ))}
             </div>
-            <div>
-                <Image
-                    width={600}
-                    height={600}
-                    src={work.image.url}
-                    alt={work.title}
-                    className="rounded-none shadow-lg"
-                    priority
-                />
-            </div>
+            {work.image && (
+                <div>
+                    <Image
+                        width={600}
+                        height={600}
+                        src={work.image.url}
+                        alt={work.title}
+                        className="rounded-none shadow-lg"
+                        priority
+                    />
+                </div>
+            )}
         </div>
     );
 };
