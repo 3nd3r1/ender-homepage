@@ -23,7 +23,7 @@ export const WorkSchema = z.object({
     id: z.string(),
     slug: z.string(),
     title: z.string(),
-    image: WorkImageSchema,
+    image: WorkImageSchema.nullable(),
     stack: z.array(z.string()).default([]),
     sourceUrl: z.string().nullable().optional(),
     liveUrl: z.string().nullable().optional(),
