@@ -104,7 +104,7 @@ const FeedbackForm = ({
                     <button
                         type="submit"
                         disabled={status === "sending"}
-                        className="!text-black !dark:text-white bg-purple-500 dark:bg-purple-800 hover:bg-purple-400 dark:hover:bg-purple-900 rounded-none py-2 px-4 text-lg font-bold transition-colors duration-200 ease-in-out"
+                        className="!text-black dark:!text-white bg-purple-500 dark:bg-purple-800 hover:bg-purple-400 dark:hover:bg-purple-900 rounded-none py-2 px-4 text-lg font-bold transition-colors duration-200 ease-in-out"
                     >
                         {status === "sending" ? "Sending..." : "Send"}
                     </button>
