@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 import { getBlog, getBlogs } from "@/lib/blog";
+import FeedbackForm from "@/components/feedback-form";
 import { Blog } from "@/validators/blog";
 
 export async function generateMetadata({
@@ -56,6 +57,7 @@ const BlogPage = async ({ params }: { params: { slug: string } }) => {
                 className="prose dark:prose-invert"
                 dangerouslySetInnerHTML={{ __html: blogDetails.content.html }}
             />
+            <FeedbackForm slug={params.slug} title={blogDetails.title} />
         </div>
     );
 };
