@@ -56,8 +56,8 @@ const FeedbackForm = ({ slug, title }: { slug: string; title: string }) => {
         "w-full bg-transparent border border-gray-600 rounded-none px-2 py-1";
 
     return (
-        <>
-            <hr className="border-gray-600 mt-8" />
+        <div className="flex flex-col gap-8 mt-4">
+            <hr className="border-gray-600" />
             <div>
                 <h2 className="font-bold text-lg">Feedback</h2>
                 {status === "sent" ? (
@@ -121,7 +121,7 @@ const FeedbackForm = ({ slug, title }: { slug: string; title: string }) => {
                     </>
                 )}
             </div>
-        </>
+        </div>
     );
 };
 
