@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 import { getBlog, getBlogs } from "@/lib/blog";
+import FeedbackForm from "@/components/feedback-form";
 import { Blog } from "@/validators/blog";
 
 export async function generateMetadata({
@@ -56,6 +57,20 @@ const BlogPage = async ({ params }: { params: { slug: string } }) => {
                 className="prose dark:prose-invert"
                 dangerouslySetInnerHTML={{ __html: blogDetails.content.html }}
             />
+            {process.env.NEXT_PUBLIC_WEB3FORMS_KEY && (
+                <div className="flex flex-col gap-8 mt-4">
+                    <hr className="border-gray-600" />
+                    <div>
+                        <h2 className="font-bold text-lg">Feedback</h2>
+                        <FeedbackForm
+                            subject={`Blog feedback: ${blogDetails.title}`}
+                            page={`/blog/${params.slug}`}
+                            intro="Disagree with something, spot a mistake, or just liked it? Tell me. Anonymous unless you leave an email."
+                            textClassName="text-xs"
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
