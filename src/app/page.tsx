@@ -8,6 +8,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 
+import FeedbackForm from "@/components/feedback-form";
+
 const MainHeading = ({ text }: { text: string }) => (
     <h1 className="underline underline-offset-8 decoration-gray-600 decoration-4 text-2xl before:content-['>_']">
         {text}
@@ -224,6 +226,19 @@ const HomePage = () => {
                         />
                     </ul>
                 </div>
+                {process.env.NEXT_PUBLIC_WEB3FORMS_KEY && (
+                    <div>
+                        <MainHeading text="Feedback" />
+                        <div className="py-4">
+                            <FeedbackForm
+                                subject="Homepage feedback"
+                                page="/"
+                                intro="Got something to say about me, my work or this site? Good or bad, I want to hear it. I'm always trying to improve. Anonymous unless you leave an email."
+                                textClassName="indent-4"
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
             <footer className="mt-12 flex justify-center">
                 <Link
