@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Ranta;Viljami;;;
+FN:Viljami Ranta
+TITLE:Software Engineer
+ORG:Palantir
+EMAIL;TYPE=INTERNET,PREF:ranta.viljami@gmail.com
+URL:https://viljamiranta.fi
+PHOTO;VALUE=URI:https://viljamiranta.fi/images/me.png
+X-SOCIALPROFILE;TYPE=github:https://github.com/3nd3r1
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/viljami-ranta/
+X-SOCIALPROFILE;TYPE=twitter:https://x.com/enderguru
+NOTE:Software Engineer working on AI infrastructure. Website: https://viljamiranta.fi
+END:VCARD
