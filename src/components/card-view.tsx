@@ -12,6 +12,7 @@ import {
     AiOutlineCopy,
     AiOutlineGlobal,
     AiOutlineMail,
+    AiOutlinePhone,
     AiOutlineQrcode,
     AiOutlineUserAdd,
 } from "react-icons/ai";
@@ -44,6 +45,12 @@ const LINKS: CardLinkItem[] = [
         value: "viljamiranta.fi",
         href: "/",
         icon: <AiOutlineGlobal className="text-xl shrink-0" />,
+    },
+    {
+        label: "Phone",
+        value: "+358 40 4822554",
+        href: "tel:+358404822554",
+        icon: <AiOutlinePhone className="text-xl shrink-0" />,
     },
     {
         label: "Email",
