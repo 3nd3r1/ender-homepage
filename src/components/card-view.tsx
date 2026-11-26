@@ -122,16 +122,14 @@ const CardView = () => {
                 <div className="p-6 flex flex-col gap-6">
                     {/* Identity */}
                     <div className="flex flex-col sm:flex-row items-center sm:items-center gap-5 text-center sm:text-left">
-                        <div className="relative w-24 h-24 shrink-0">
-                            <span className="absolute rounded-full border-2 border-purple-500 dark:border-white w-full h-full shadow-md overflow-hidden">
-                                <Image
-                                    src="/images/me.png"
-                                    alt="Picture of Viljami Ranta"
-                                    fill
-                                    priority
-                                    className="rounded-full object-cover object-[50%_10%]"
-                                />
-                            </span>
+                        <div className="relative w-24 h-24 shrink-0 rounded-full border-2 border-purple-500 dark:border-white shadow-md overflow-hidden">
+                            <Image
+                                src="/images/me.png"
+                                alt="Picture of Viljami Ranta"
+                                fill
+                                priority
+                                className="rounded-full object-cover object-[50%_10%]"
+                            />
                         </div>
                         <div className="flex flex-col items-center sm:items-start">
                             <h1 className="text-3xl font-bold leading-tight">
