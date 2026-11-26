@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     title: "Viljami Ranta | Card",
     description:
         "Digital business card for Viljami Ranta — Software Engineer. Save contact or connect on GitHub, LinkedIn, X, and more.",
+    robots: {
+        index: false,
+        follow: false,
+    },
     openGraph: {
         title: "Viljami Ranta — Digital Card",
         description:
